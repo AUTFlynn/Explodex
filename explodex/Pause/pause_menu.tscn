@@ -54,6 +54,7 @@ text = "Paused"
 horizontal_alignment = 1
 
 [node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_fonts/font = SubResource("SystemFont_iqvbm")
@@ -61,6 +62,7 @@ theme_override_font_sizes/font_size = 35
 text = "Continue"
 
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = SubResource("SystemFont_iqvbm")
@@ -68,6 +70,7 @@ theme_override_font_sizes/font_size = 35
 text = "Restart"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_fonts/font = SubResource("SystemFont_iqvbm")

@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctq5bwxyhv6uk"]
+[gd_scene load_steps=3 format=3 uid="uid://ctq5bwxyhv6uk"]
 
 [ext_resource type="Script" uid="uid://x0lj2pngskl8" path="res://Scenes/world.gd" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://btsunvtx6xdd8" path="res://Pause/pause_menu.tscn" id="2_go701"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a02cp")
+pause_menu_packed_scene = ExtResource("2_go701")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="UI_Container" type="CanvasLayer" parent="."]
