@@ -4,8 +4,8 @@ var t = preload("res://TileSystem/tile.tscn")
 
 #settings
 const tile_size = 16
-var board_size_x = 12
-var board_size_y = 10
+var board_size_x = 5
+var board_size_y = 5
 var offset = Vector2((board_size_x*tile_size)/2-tile_size/2, (board_size_y*tile_size)/2-tile_size/2)
 
 #sets up initial tile grid
