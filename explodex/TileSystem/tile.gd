@@ -19,7 +19,7 @@ func _input(event):
 				onClick(false)
 
 func onClick(left):
-	if left:
+	if left:   
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
 			StateManager.world.spawn_bombs(pos)

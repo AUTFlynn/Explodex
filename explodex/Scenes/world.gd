@@ -2,6 +2,12 @@ extends Node2D
 #objects
 var t = preload("res://TileSystem/tile.tscn")
 
+@export var pause_menu_packed_scene : PackedScene = null
+
+func _unhandled_key_input(event) -> void:
+	if event.is_action("pause"):
+		var new_pause_menu : PauseMenu = pause_menu_packed_scene.instantiate()
+
 #settings
 const tile_size = 16
 var board_size_x
