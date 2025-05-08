@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://btsunvtx6xdd8"]
+[gd_scene load_steps=4 format=3 uid="uid://cvltd3limee7u"]
 
-[ext_resource type="Script" uid="uid://des0bvvfhi45f" path="res://Pause/pause_menu.gd" id="1_iqvbm"]
+[ext_resource type="Script" path="res://Pause/pause_menu.gd" id="1_iqvbm"]
 
 [sub_resource type="SystemFont" id="SystemFont_c4qrp"]
 font_names = PackedStringArray("Impact")
