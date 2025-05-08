@@ -8,6 +8,7 @@ var adjactent_bombs : int = 0
 
 @onready var sprite = $Sprite2D
 @onready var victory_scene = preload("res://Victory/victory_screen.tscn")
+@onready var gameover_scene = preload("res://Gameover/gameover.tscn")
 
 ##mouse events for the tile
 func _input(event):
@@ -64,16 +65,23 @@ func remove_tile():
 	queue_free()
 	check_victory()
 
-#check to see victory conditions
+#check victory conditions
 func check_victory():
-	#temporary game over
+	#display game over
 	if bomb:
-		get_tree().quit()
+		show_gameover()
 	#display victory
 	if StateManager.world.all_safe_tiles_cleared():
 		show_victory()
 
-#show the victory
+#show gameover
+func show_gameover():
+	#remove current scene
+	get_tree().current_scene.queue_free()
+	var gameover = gameover_scene.instantiate()
+	get_tree().root.add_child(gameover)
+
+#show victory
 func show_victory():
 	#remove current scene
 	get_tree().current_scene.queue_free()
