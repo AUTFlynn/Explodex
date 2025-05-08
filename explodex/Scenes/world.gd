@@ -41,9 +41,15 @@ func spawn_bombs(pos : Vector2i):
 				#use our dictionary to locate the tile object and increment adjacent_bombs
 				if tiles.has(Vector2i(x,y)):
 					tiles[Vector2i(x,y)].adjactent_bombs += 1
-		
 
+#check to see all safe tiles cleared
+func all_safe_tiles_cleared():
+	for tile in tiles.values():
+		if not tile.bomb:
+			return false
+	return true
 
 func _ready():
 	StateManager.world = self
+	tiles.clear()
 	create_grid()

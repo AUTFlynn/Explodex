@@ -5,7 +5,9 @@ var sprite_size = 16
 var pos : Vector2i
 var bomb : bool = false
 var adjactent_bombs : int = 0
+
 @onready var sprite = $Sprite2D
+@onready var victory_scene = preload("res://Victory/victory_screen.tscn")
 
 ##mouse events for the tile
 func _input(event):
@@ -60,3 +62,20 @@ func remove_tile():
 	#delete tile and remove from the dict
 	StateManager.world.tiles.erase(pos)
 	queue_free()
+	check_victory()
+
+#check to see victory conditions
+func check_victory():
+	#temporary game over
+	if bomb:
+		get_tree().quit()
+	#display victory
+	if StateManager.world.all_safe_tiles_cleared():
+		show_victory()
+
+#show the victory
+func show_victory():
+	#remove current scene
+	get_tree().current_scene.queue_free()
+	var victory = victory_scene.instantiate()
+	get_tree().root.add_child(victory)
