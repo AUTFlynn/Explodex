@@ -6,10 +6,15 @@ var pos : Vector2i
 var bomb : bool = false
 var dead : bool = false
 var adjactent_bombs : int = 0
-var flagged : bool = false
 
 @onready var sprite = $Sprite2D
+@onready var victory_scene = preload("res://Victory/victory_screen.tscn")
+@onready var gameover_scene = preload("res://Gameover/gameover.tscn")
+
+var flagged : bool = false
+
 @onready var flag = $flag
+
 
 ##mouse events for the tile
 func _input(event):
@@ -65,6 +70,32 @@ func remove_tile():
 	StateManager.world.tiles.erase(pos)
 	$Sprite2D2.visible = false
 	dead = true
+	check_victory()
+
+#check victory conditions
+func check_victory():
+	#display game over
+	if bomb:
+		show_gameover()
+	#display victory
+	if StateManager.world.all_safe_tiles_cleared():
+		show_victory()
+
+#show gameover
+func show_gameover():
+	#remove current scene
+	get_tree().current_scene.queue_free()
+	var gameover = gameover_scene.instantiate()
+	get_tree().root.add_child(gameover)
+
+#show victory
+func show_victory():
+	#remove current scene
+	get_tree().current_scene.queue_free()
+	var victory = victory_scene.instantiate()
+	get_tree().root.add_child(victory)
+
+
 
 func toggle_flag():
 	#check to see if the tile is flagged and place one if not
@@ -93,3 +124,4 @@ func update_adjacent_display():
 		$RichTextLabel.text = str(adjactent_bombs)
 	else:
 		$RichTextLabel.visible = false
+
