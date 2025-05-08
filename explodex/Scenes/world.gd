@@ -1,6 +1,20 @@
+class_name MainGame
 extends Node2D
 #objects
 var t = preload("res://TileSystem/tile.tscn")
+
+
+#pause function
+@export var pause_menu_packed_scene : PackedScene = null
+@onready var ui_container: CanvasLayer = $UI_Container as CanvasLayer
+
+func _unhandled_key_input(event) -> void:
+	if event.is_action("pause"):
+		var new_pause_menu : PauseMenu = pause_menu_packed_scene.instantiate()
+		
+		ui_container.add_child(new_pause_menu)
+
+
 
 #settings
 const tile_size = 16
@@ -33,7 +47,6 @@ func spawn_bombs(pos : Vector2i):
 	##loop through each mine
 	for i in mine_array:
 		i.bomb = true
-		i.sprite.visible = false #temporary visual change for development
 		
 		#loop through all 8 surrounding tiles (and the bomb)
 		for x in range(i.pos.x-1, i.pos.x+2):
@@ -45,5 +58,7 @@ func spawn_bombs(pos : Vector2i):
 
 
 func _ready():
+	get_tree().paused = false  # unpause in case it's a restart
 	StateManager.world = self
+	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
