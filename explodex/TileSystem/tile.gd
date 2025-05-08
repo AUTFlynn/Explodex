@@ -8,6 +8,7 @@ var adjactent_bombs : int = 0
 var flagged : bool = false
 
 @onready var sprite = $Sprite2D
+@onready var flag = $flag
 
 ##mouse events for the tile
 func _input(event):
@@ -68,9 +69,11 @@ func toggle_flag():
 		flagged = !flagged
 		if flagged:
 			#create a flag tile
-			sprite.texture = preload("res://Sprites/DevSprites/flag.png")
-			sprite.scale = Vector2(sprite_size / float(sprite.texture.get_width()), sprite_size / float(sprite.texture.get_height()))
+			#sprite.texture = preload("res://Sprites/DevSprites/flag.png")
+			#sprite.scale = Vector2(sprite_size / float(sprite.texture.get_width()), sprite_size / float(sprite.texture.get_height()))
+			flag.visible = true
 		else:
 			#reset the scaling and tile to default
-			sprite.texture = preload("res://Sprites/DevSprites/square.png")
-			sprite.scale = Vector2(1,1)
+			#sprite.texture = preload("res://Sprites/DevSprites/square.png")
+			#sprite.scale = Vector2(1,1)
+			flag.visible = false
