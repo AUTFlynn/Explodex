@@ -11,6 +11,6 @@ func play(sound_id):
 	
 	#wait 5 seconds then delete the player
 	await get_tree().create_timer(10.0).timeout 
-	queue_free()
+	sound.queue_free()
 	
 	

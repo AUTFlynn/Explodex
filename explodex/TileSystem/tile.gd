@@ -4,12 +4,13 @@ class_name tile
 var sprite_size = 16
 var pos : Vector2i
 var bomb : bool = false
+var dead : bool = false
 var adjactent_bombs : int = 0
 @onready var sprite = $Sprite2D
 
 ##mouse events for the tile
 func _input(event):
-	$RichTextLabel.text = str(adjactent_bombs) #TEMPORARY 
+	update_adjacent_display()
 	if event is InputEventMouseButton and event.pressed:
 		var local_mouse_pos = get_local_mouse_position()
 		if abs(local_mouse_pos.x) < sprite_size/2 and abs(local_mouse_pos.y) < sprite_size/2:
@@ -59,4 +60,20 @@ func cascadeRemove(last : tile = null, visited := {}):
 func remove_tile():
 	#delete tile and remove from the dict
 	StateManager.world.tiles.erase(pos)
-	queue_free()
+	$Sprite2D2.visible = false
+	dead = true
+
+	
+func update_adjacent_display():
+	var adjacent = 0
+	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
+	for i in directions:
+		var x = pos.x + i.x
+		var y = pos.y + i.y
+		if StateManager.world.tiles.has(Vector2i(x,y)):
+			adjacent += 1
+	if adjacent > 0 and adjacent < 4 and dead:
+		$RichTextLabel.visible = true
+		$RichTextLabel.text = str(adjactent_bombs)
+	else:
+		$RichTextLabel.visible = false

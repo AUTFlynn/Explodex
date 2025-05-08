@@ -33,7 +33,6 @@ func spawn_bombs(pos : Vector2i):
 	##loop through each mine
 	for i in mine_array:
 		i.bomb = true
-		i.sprite.visible = false #temporary visual change for development
 		
 		#loop through all 8 surrounding tiles (and the bomb)
 		for x in range(i.pos.x-1, i.pos.x+2):
