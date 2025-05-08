@@ -36,8 +36,6 @@ func onClick(left):
 			SoundManager.play(0)
 		cascadeRemove()
 		remove_tile()
-	else:
-		pass #right click on tiles
 
 func cascadeRemove(last : tile = null, visited := {}):
 	#remove our previous tile
@@ -48,7 +46,6 @@ func cascadeRemove(last : tile = null, visited := {}):
 		return
 	visited[pos] = true
 
-	
 	#loop through adjacent tiles (ignoring diagonals)
 	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
 	for i in directions:
