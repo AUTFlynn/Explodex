@@ -59,5 +59,7 @@ func spawn_bombs(pos : Vector2i):
 
 
 func _ready():
+	get_tree().paused = false  # unpause in case it's a restart
 	StateManager.world = self
+	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
