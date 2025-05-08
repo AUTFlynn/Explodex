@@ -6,7 +6,10 @@ var pos : Vector2i
 var bomb : bool = false
 var dead : bool = false
 var adjactent_bombs : int = 0
+var flagged : bool = false
+
 @onready var sprite = $Sprite2D
+@onready var flag = $flag
 
 ##mouse events for the tile
 func _input(event):
@@ -15,9 +18,12 @@ func _input(event):
 		var local_mouse_pos = get_local_mouse_position()
 		if abs(local_mouse_pos.x) < sprite_size/2 and abs(local_mouse_pos.y) < sprite_size/2:
 			if event.is_action("left_click"):
-				onClick(true)
+				#prevent clicking flagged tiles
+				if not flagged:
+					onClick(true)
 			if event.is_action("right_click"):
-				onClick(false)
+				#use flag function to place or remove flag
+				toggle_flag()
 
 func onClick(left):
 	if left:   
@@ -32,8 +38,6 @@ func onClick(left):
 			SoundManager.play(0)
 		cascadeRemove()
 		remove_tile()
-	else:
-		pass #right click on tiles
 
 func cascadeRemove(last : tile = null, visited := {}):
 	#remove our previous tile
@@ -44,7 +48,6 @@ func cascadeRemove(last : tile = null, visited := {}):
 		return
 	visited[pos] = true
 
-	
 	#loop through adjacent tiles (ignoring diagonals)
 	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
 	for i in directions:
@@ -60,10 +63,23 @@ func cascadeRemove(last : tile = null, visited := {}):
 func remove_tile():
 	#delete tile and remove from the dict
 	StateManager.world.tiles.erase(pos)
-	$Sprite2D2.visible = false
+  $Sprite2D2.visible = false
 	dead = true
 
-	
+func toggle_flag():
+	#check to see if the tile is flagged and place one if not
+		flagged = !flagged
+		if flagged:
+			#create a flag tile
+			#sprite.texture = preload("res://Sprites/DevSprites/flag.png")
+			#sprite.scale = Vector2(sprite_size / float(sprite.texture.get_width()), sprite_size / float(sprite.texture.get_height()))
+			flag.visible = true
+		else:
+			#reset the scaling and tile to default
+			#sprite.texture = preload("res://Sprites/DevSprites/square.png")
+			#sprite.scale = Vector2(1,1)
+			flag.visible = false
+
 func update_adjacent_display():
 	var adjacent = 0
 	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
