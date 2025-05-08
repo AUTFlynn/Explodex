@@ -63,7 +63,7 @@ func cascadeRemove(last : tile = null, visited := {}):
 func remove_tile():
 	#delete tile and remove from the dict
 	StateManager.world.tiles.erase(pos)
-  $Sprite2D2.visible = false
+	$Sprite2D2.visible = false
 	dead = true
 
 func toggle_flag():
