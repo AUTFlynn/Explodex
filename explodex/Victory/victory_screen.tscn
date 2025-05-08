@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwgqi4xo8fgc1"]
+
+[ext_resource type="Script" uid="uid://dgv86a2mwtoyc" path="res://Victory/victory_screen.gd" id="1_5y5gb"]
+[ext_resource type="Texture2D" uid="uid://8enk50ld8klc" path="res://Victory/Assets/VictoryBackground.png" id="1_jkujr"]
+[ext_resource type="FontFile" uid="uid://1emqc73xxokj" path="res://Victory/Assets/Super Squad Italic.otf" id="2_5y5gb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnkfn"]
+bg_color = Color(0, 0, 0, 0.321569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbkn0"]
+bg_color = Color(0.55286, 0, 0.0081109, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhhpk"]
+bg_color = Color(0.346087, 0, 0.00299033, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdywt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fd3l"]
+bg_color = Color(0.55286, 0, 0.0081109, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjo04"]
+bg_color = Color(0.346087, 0, 0.00299033, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6plfd"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="VictoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5y5gb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jkujr")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fnkfn")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Display" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VictoryText" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/Display"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("2_5y5gb")
+theme_override_font_sizes/font_size = 64
+text = "Victory"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer/MarginContainer/Display"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5y5gb")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_gbkn0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhhpk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kdywt")
+text = "     Restart     "
+
+[node name="Quit" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5y5gb")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_1fd3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qjo04")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6plfd")
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
