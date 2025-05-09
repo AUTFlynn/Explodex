@@ -47,19 +47,23 @@ func spawn_bombs(pos : Vector2i):
 	##loop through each mine
 	for i in mine_array:
 		i.bomb = true
-		i.sprite.visible = false #temporary visual change for development
-		
 		#loop through all 8 surrounding tiles (and the bomb)
 		for x in range(i.pos.x-1, i.pos.x+2):
 			for y in range(i.pos.y-1, i.pos.y+2):
 				#use our dictionary to locate the tile object and increment adjacent_bombs
 				if tiles.has(Vector2i(x,y)):
 					tiles[Vector2i(x,y)].adjactent_bombs += 1
-		
 
+#check to see all safe tiles cleared
+func all_safe_tiles_cleared():
+	for t in tiles:
+		if !tiles[t].bomb and !tiles[t].dead:
+			return false
+	return true
 
 func _ready():
 	get_tree().paused = false  # unpause in case it's a restart
 	StateManager.world = self
+	tiles.clear()
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
