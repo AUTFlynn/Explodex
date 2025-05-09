@@ -16,11 +16,12 @@ func _unhandled_key_input(event) -> void:
 
 
 #settings
-const tile_size = 16
+const tile_size = 16	
 var board_size_x
 var board_size_y
 var tiles = {} #tile dictionary
 var mine_array = []
+
 #sets up initial tile grid
 func create_grid():
 	board_size_x = StateManager.board_size.x
