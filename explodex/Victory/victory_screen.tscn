@@ -97,5 +97,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qjo04")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6plfd")
 text = "Quit"
 
-[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Quit" to="." method="_on_quit_button_down"]
