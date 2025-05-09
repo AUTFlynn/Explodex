@@ -38,13 +38,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Game Over"
 
-[node name="retry" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="Restart" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Retry"
+text = "Restart"
 
-[node name="quit" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]

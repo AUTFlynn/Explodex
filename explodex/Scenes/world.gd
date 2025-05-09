@@ -15,7 +15,6 @@ func _unhandled_key_input(event) -> void:
 		ui_container.add_child(new_pause_menu)
 
 
-
 #settings
 const tile_size = 16
 var board_size_x
