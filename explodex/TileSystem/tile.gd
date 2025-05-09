@@ -44,30 +44,25 @@ func onClick(left):
 		cascadeRemove()
 		remove_tile()
 
-func cascadeRemove(last : tile = null, visited := {}):
-	#remove our previous tile
-	if last:
-		remove_tile()
+func cascadeRemove(visited := {}):
 	#add our current position to visited dictionary
 	if visited.has(pos):
 		return
 	visited[pos] = true
 
 	#loop through adjacent tiles (ignoring diagonals)
-	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
+	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1),
+	Vector2i(1,1),Vector2i(1,-1),Vector2i(-1,1),Vector2i(-1,-1)]
 	for i in directions:
 		var x = pos.x + i.x
 		var y = pos.y + i.y
 		if StateManager.world.tiles.has(Vector2i(x,y)):
-			#if our tile has 0 adjacent bombs, continue the recurssion
 			var t = StateManager.world.tiles[Vector2i(x,y)]
 			if t.adjactent_bombs == 0:
-				t.cascadeRemove(t, visited)
 				remove_tile()
+			t.cascadeRemove(visited)
 
 func remove_tile():
-	#delete tile and remove from the dict
-	StateManager.world.tiles.erase(pos)
 	$Sprite2D2.visible = false
 	dead = true
 	check_victory()
@@ -101,27 +96,22 @@ func toggle_flag():
 	#check to see if the tile is flagged and place one if not
 		flagged = !flagged
 		if flagged:
-			#create a flag tile
-			#sprite.texture = preload("res://Sprites/DevSprites/flag.png")
-			#sprite.scale = Vector2(sprite_size / float(sprite.texture.get_width()), sprite_size / float(sprite.texture.get_height()))
 			flag.visible = true
 		else:
-			#reset the scaling and tile to default
-			#sprite.texture = preload("res://Sprites/DevSprites/square.png")
-			#sprite.scale = Vector2(1,1)
 			flag.visible = false
 
 func update_adjacent_display():
 	var adjacent = 0
-	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
+	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1),
+	Vector2i(1,1),Vector2i(1,-1),Vector2i(-1,1),Vector2i(-1,-1)]
 	for i in directions:
 		var x = pos.x + i.x
 		var y = pos.y + i.y
 		if StateManager.world.tiles.has(Vector2i(x,y)):
-			adjacent += 1
-	if adjacent > 0 and adjacent < 4 and dead:
+			if StateManager.world.tiles[Vector2i(x,y)].dead == false:
+				adjacent += 1
+	if adjacent > 0 and dead:
 		$RichTextLabel.visible = true
 		$RichTextLabel.text = str(adjactent_bombs)
 	else:
 		$RichTextLabel.visible = false
-
