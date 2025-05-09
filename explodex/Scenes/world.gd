@@ -47,7 +47,6 @@ func spawn_bombs(pos : Vector2i):
 	##loop through each mine
 	for i in mine_array:
 		i.bomb = true
-		
 		#loop through all 8 surrounding tiles (and the bomb)
 		for x in range(i.pos.x-1, i.pos.x+2):
 			for y in range(i.pos.y-1, i.pos.y+2):
@@ -57,8 +56,8 @@ func spawn_bombs(pos : Vector2i):
 
 #check to see all safe tiles cleared
 func all_safe_tiles_cleared():
-	for tile in tiles.values():
-		if not tile.bomb:
+	for t in tiles:
+		if !tiles[t].bomb and !tiles[t].dead:
 			return false
 	return true
 
