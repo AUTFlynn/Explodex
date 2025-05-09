@@ -44,7 +44,7 @@ func onClick(left):
 		cascadeRemove()
 		remove_tile()
 
-func cascadeRemove(visited := {}):
+func cascadeRemove2(visited := {}):
 	#add our current position to visited dictionary
 	if visited.has(pos):
 		return
@@ -61,6 +61,28 @@ func cascadeRemove(visited := {}):
 			if t.adjactent_bombs == 0:
 				remove_tile()
 			t.cascadeRemove(visited)
+
+func cascadeRemove(visited := {}, stop = false):
+	#add our current position to visited dictionary
+	if visited.has(pos):
+		return
+	visited[pos] = true
+
+	#loop through adjacent tiles (ignoring diagonals)
+	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1),
+	Vector2i(1,1),Vector2i(1,-1),Vector2i(-1,1),Vector2i(-1,-1)]
+	for i in directions:
+		var x = pos.x + i.x
+		var y = pos.y + i.y
+		if StateManager.world.tiles.has(Vector2i(x,y)):
+			var t = StateManager.world.tiles[Vector2i(x,y)]
+			if t.adjactent_bombs == 0:
+				remove_tile()
+				if !stop:
+					t.cascadeRemove(visited)
+			else:
+				if !stop:
+					t.cascadeRemove(visited, true)
 
 func remove_tile():
 	$Sprite2D2.visible = false
