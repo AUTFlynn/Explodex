@@ -1,7 +1,7 @@
 extends Node
 
 var world
-
+var time : float = 0
 var first_tile : bool = false
 
 var max_bombs : int = 20

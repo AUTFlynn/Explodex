@@ -67,3 +67,9 @@ func _ready():
 	tiles.clear()
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
+
+
+##score timer
+func _on_timer_timeout():
+	StateManager.time += 1
+	$Timer.start(1.0)

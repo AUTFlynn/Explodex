@@ -18,6 +18,8 @@ var flagged : bool = false
 
 ##mouse events for the tile
 func _input(event):
+	if bomb: ##TEMP CHANGE FOR APU TESTTING
+		sprite.visible = false##TEMP CHANGE FOR APU TESTTING
 	update_adjacent_display()
 	if event is InputEventMouseButton and event.pressed:
 		var local_mouse_pos = get_local_mouse_position()
