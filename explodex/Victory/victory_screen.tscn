@@ -112,4 +112,3 @@ script = ExtResource("4_fnkfn")
 
 [connection signal="button_down" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Restart" to="." method="_on_restart_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Quit" to="." method="_on_quit_button_down"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

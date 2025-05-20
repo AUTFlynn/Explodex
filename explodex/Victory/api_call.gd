@@ -1,7 +1,16 @@
 extends HTTPRequest
 
 func _ready():
+	#get score
 	var score = StateManager.time
-	var req = "http://localhost:8000/submit-score-query?username=player1&score=" + str(score)
-	var response = request(req)
-	print(response)
+	
+	#setup our post request to leaderboard api
+	var url = "http://localhost:8000/submit-score"
+	var headers = ["Content-Type: application/json"]	
+	var body = JSON.stringify({
+		"username": "player1",
+		"score": score
+	})
+
+	#send post request
+	request(url, headers, HTTPClient.METHOD_POST, body)

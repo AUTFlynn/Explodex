@@ -16,6 +16,3 @@ func _on_quit_button_down() -> void:
 
 func _ready():
 	$CanvasLayer/PanelContainer/MarginContainer/Display/score_text.text = str(StateManager.time) + " Seconds"
-
-func _on_http_request_request_completed(result, response_code, headers, body):
-	pass # Replace with function body.

@@ -18,8 +18,8 @@ var flagged : bool = false
 
 ##mouse events for the tile
 func _input(event):
-	if bomb: ##TEMP CHANGE FOR APU TESTTING
-		sprite.visible = false##TEMP CHANGE FOR APU TESTTING
+	if bomb: ##TEMP CHANGED FOR API TESTTING
+		sprite.visible = false##TEMP CHANGED FOR API TESTTING
 	update_adjacent_display()
 	if event is InputEventMouseButton and event.pressed:
 		var local_mouse_pos = get_local_mouse_position()
@@ -36,33 +36,13 @@ func onClick(left):
 	if left:   
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
+			StateManager.time = 0
 			StateManager.world.spawn_bombs(pos)
 			StateManager.first_tile = true
-			cascadeRemove()
-		
-		##logic to remove tile (queue_free())
 		if bomb:
 			SoundManager.play(0)
 		cascadeRemove()
 		remove_tile()
-
-func cascadeRemove2(visited := {}):
-	#add our current position to visited dictionary
-	if visited.has(pos):
-		return
-	visited[pos] = true
-
-	#loop through adjacent tiles (ignoring diagonals)
-	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1),
-	Vector2i(1,1),Vector2i(1,-1),Vector2i(-1,1),Vector2i(-1,-1)]
-	for i in directions:
-		var x = pos.x + i.x
-		var y = pos.y + i.y
-		if StateManager.world.tiles.has(Vector2i(x,y)):
-			var t = StateManager.world.tiles[Vector2i(x,y)]
-			if t.adjactent_bombs == 0:
-				remove_tile()
-			t.cascadeRemove(visited)
 
 func cascadeRemove(visited := {}, stop = false):
 	#add our current position to visited dictionary
