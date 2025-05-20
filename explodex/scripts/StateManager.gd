@@ -6,6 +6,7 @@ var first_tile : bool = false
 
 var max_bombs : int = 20
 var board_size: Vector2i = Vector2i(12, 10)
+var mode = "Medium"
 
 func resetLevel():
 	get_tree().paused = false
