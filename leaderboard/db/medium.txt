@@ -1,1 +1,4 @@
+20,player1
+20,player1
+24,player1
 34,player1

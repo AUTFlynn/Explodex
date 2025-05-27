@@ -11,6 +11,7 @@ class ScoreData(BaseModel):
     score: int
     mode: str
 
+#post request to collect score data from user
 @app.post("/submit-score")
 async def submit_score(data: ScoreData):
     print(f"Received score from {data.username}: {data.score}, Mode: {data.mode}")
@@ -34,15 +35,14 @@ async def save_score(username: str, score: int, mode: str):
             leaderboard = "medium.txt"
         case "Hard":
             leaderboard = "hard.txt"
-        case _:
-            leaderboard = "error.txt"
+        case _: #catches any case where the mode value is wrong which means the api call didn't come from godot
+            leaderboard = "error.txt" 
             error = True
             
-        
     #getting path using os, was running into problems using local path
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    scores_dir = os.path.join(base_dir, "db")
-    scores_file = os.path.join(scores_dir, leaderboard)
+    db = os.path.join(base_dir, "db")
+    scores_file = os.path.join(db, leaderboard)
 
     top_scores = []
 
@@ -60,7 +60,7 @@ async def save_score(username: str, score: int, mode: str):
 
         #append the new score and recalculate top 10
         top_scores.append((score, username))
-        if not error: #if error, log the score without ranking and slicing
+        if not error: #if error, log the score without ranking or limiting to 10
             top_scores.sort() #sort defaults to index 0 (score) when sorting tuples 
             top_scores = top_scores[:10]
 
@@ -70,6 +70,40 @@ async def save_score(username: str, score: int, mode: str):
                 await file.write(f"{s},{user}\n")
 
 
+class ScoreBoard(BaseModel):
+    name: list[str]
+    score: list[int]
+
+
+
+#get request for sending leaderboard to user
+@app.get("/leaderboard")
+async def get_leaderboard():
+    score = await load_score()
+    print(score)
+    return score
+
+async def load_score():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    db = os.path.join(base_dir, "db")
+    scores_files = [os.path.join(db, "easy.txt"), os.path.join(db, "medium.txt"), os.path.join(db, "hard.txt")]
+
+    leaderboard = []
+    for scores_file in scores_files:
+        async with aiofiles.open(scores_file, "r") as file:
+            content = await file.read()
+
+            #read through the scores file 
+            for line in content.strip().split("\n"):
+                if line: 
+                    record = line.split(",")
+                    existing_score = int(record[0])
+                    existing_username = record[1]
+                    leaderboard.append({
+                        "score": existing_score,
+                        "name": existing_username   
+                    })
+    return leaderboard
 
 #starts app - may have to remove this when hosting will have to look into optinosn  
 if __name__ == "__main__":
