@@ -60,7 +60,7 @@ async def save_score(username: str, score: int, mode: str):
 
         #append the new score and recalculate top 10
         top_scores.append((score, username))
-        if not error: #if error, log the score without ranking or limiting to 10
+        if error == False: #if error, log the score without ranking or limiting to 10
             top_scores.sort() #sort defaults to index 0 (score) when sorting tuples 
             top_scores = top_scores[:10]
 
@@ -70,12 +70,6 @@ async def save_score(username: str, score: int, mode: str):
                 await file.write(f"{s},{user}\n")
 
 
-class ScoreBoard(BaseModel):
-    name: list[str]
-    score: list[int]
-
-
-
 #get request for sending leaderboard to user
 @app.get("/leaderboard")
 async def get_leaderboard():
@@ -83,6 +77,7 @@ async def get_leaderboard():
     print(score)
     return score
 
+#asynchronously loads loads our leaderboards from files
 async def load_score():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     db = os.path.join(base_dir, "db")

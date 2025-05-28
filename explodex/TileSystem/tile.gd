@@ -15,7 +15,6 @@ var flagged : bool = false
 
 @onready var flag = $flag
 
-
 ##mouse events for the tile
 func _input(event):
 	if bomb: ##TEMP CHANGED FOR API TESTTING
