@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctq5bwxyhv6uk"]
+[gd_scene load_steps=5 format=3 uid="uid://ctq5bwxyhv6uk"]
 
 [ext_resource type="Script" uid="uid://x0lj2pngskl8" path="res://Scenes/world.gd" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://cvltd3limee7u" path="res://Pause/pause_menu.tscn" id="2_go701"]
 [ext_resource type="AudioStream" uid="uid://brmvwpyb3lo13" path="res://music/Free Video Game Music - HeatleyBros - Game On.mp3" id="3_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://cbm7h2fqybd1j" path="res://bait/bait.tscn" id="4_8j60k"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a02cp")
@@ -18,3 +19,6 @@ stream = ExtResource("3_5a7ea")
 volume_db = -14.495
 autoplay = true
 bus = &"Music"
+
+[node name="Bait" parent="." instance=ExtResource("4_8j60k")]
+position = Vector2(-207, 122)
