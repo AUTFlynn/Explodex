@@ -7,7 +7,11 @@ var first_tile : bool = false
 var max_bombs : int = 20
 var board_size: Vector2i = Vector2i(12, 10)
 var mode = "Medium"
-var leaderboard
+
+#leaderboards
+var easy
+var medium
+var hard
 
 func resetLevel():
 	get_tree().paused = false
@@ -34,9 +38,29 @@ func get_leaderboard():
 		print("Request failed to send:", err)
 	
 func _on_leaderboard_received(result, response_code, headers, body):
+	#enusre our request was valid
 	if result != HTTPRequest.RESULT_SUCCESS:
 		print("Request failed, result code:", result)
 		return
-	leaderboard = body
-	print("HTTP Response Code:", response_code)
-	print("Body:", body.get_string_from_utf8())
+	if response_code != 200:
+		print("HTTP error:", response_code)
+		return
+	
+	var json = JSON.new()
+	var parse_result = json.parse(body.get_string_from_utf8())
+	
+	easy = []
+	medium = []
+	hard = []
+	
+	for i in range(0,json.data.size()):
+		var entry = json.data[i]
+		
+		match int(entry.mode):
+			0:
+				easy.append([entry.name, entry.score])
+			1:
+				medium.append([entry.name, entry.score])
+			2:
+				hard.append([entry.name, entry.score])
+		print(medium)

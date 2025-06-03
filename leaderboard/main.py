@@ -84,8 +84,8 @@ async def load_score():
     scores_files = [os.path.join(db, "easy.txt"), os.path.join(db, "medium.txt"), os.path.join(db, "hard.txt")]
 
     leaderboard = []
-    for scores_file in scores_files:
-        async with aiofiles.open(scores_file, "r") as file:
+    for i in range(0,len(scores_files)):
+        async with aiofiles.open(scores_files[i], "r") as file:
             content = await file.read()
 
             #read through the scores file 
@@ -96,7 +96,8 @@ async def load_score():
                     existing_username = record[1]
                     leaderboard.append({
                         "score": existing_score,
-                        "name": existing_username   
+                        "name": existing_username,
+                        "mode" : i   
                     })
     return leaderboard
 

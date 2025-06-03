@@ -8,7 +8,8 @@ extends Control
 @onready var options_menu = $Options_Menu
 @onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
 
-
+@onready var leaderboard_button = $MarginContainer/HBoxContainer/VBoxContainer/LeaderboardButton
+@onready var leaderboard_menu = $LeaderboardMenu
 @onready var start_level = preload("res://Scenes/world.tscn") as PackedScene
 
 func _ready():
@@ -29,8 +30,19 @@ func on_exit_options_menu() -> void:
 	margin_container.visible = true
 	options_menu.visible = false
 
+func on_exit_leaderboard_menu():
+	margin_container.visible = true
+	leaderboard_menu.visible = false
+	
 func handle_connecting_signals() -> void:
 	start_button.button_down.connect(on_start_pressed)
 	options_button.button_down.connect(on_options_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
+	leaderboard_menu.exit_leaderboard_menu.connect(on_exit_leaderboard_menu)
+
+
+func _on_leaderboard_button_pressed():
+	margin_container.visible = false
+	#leaderboard_menu.set_process(true)
+	leaderboard_menu.visible = true
