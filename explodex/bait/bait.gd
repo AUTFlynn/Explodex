@@ -4,7 +4,9 @@ class_name bait
 @export var only_bombs : bool = false
 @export var only_flag : bool = false
 @export var num_targets : int = 3
+
 @export var speed : float = 40
+@export var acceleration: float = 50
 
 var targets = []
 const end_positions = [Vector2(-250, 0), Vector2(250, 0), Vector2(0, -250), Vector2(0,250)]
@@ -18,7 +20,9 @@ func _physics_process(delta):
 	#move sequentially to the targets in our array
 	if targets.size() > 0:
 		var direction = position.direction_to(targets[0])
-		velocity = direction * speed
+		var new_velocity = direction * speed
+		
+		velocity = velocity.move_toward(new_velocity, acceleration * delta)
 		move_and_slide()
 		
 		if position.distance_to(targets[0]) < min_distance:
@@ -26,7 +30,9 @@ func _physics_process(delta):
 	else:
 		#target out exit position
 		var direction = position.direction_to(end_positions[end_index])
-		velocity = direction * speed
+		var new_velocity = direction * speed
+		
+		velocity = velocity.move_toward(new_velocity, acceleration * delta)
 		move_and_slide()
 		
 		#delete if we reach it
