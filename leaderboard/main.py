@@ -35,6 +35,8 @@ async def save_score(username: str, score: int, mode: str):
             leaderboard = "medium.txt"
         case "Hard":
             leaderboard = "hard.txt"
+        case "Special":
+            leaderboard = "special.txt"
         case _: #catches any case where the mode value is wrong which means the api call didn't come from godot
             leaderboard = "error.txt" 
             error = True
@@ -81,7 +83,8 @@ async def get_leaderboard():
 async def load_score():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     db = os.path.join(base_dir, "db")
-    scores_files = [os.path.join(db, "easy.txt"), os.path.join(db, "medium.txt"), os.path.join(db, "hard.txt")]
+    scores_files = [os.path.join(db, "easy.txt"), os.path.join(db, "medium.txt"), 
+                    os.path.join(db, "hard.txt"), os.path.join(db, "special.txt")]
 
     leaderboard = []
     for i in range(0,len(scores_files)):

@@ -20,7 +20,8 @@ func insert_leaderboard():
 	var easy = StateManager.easy
 	var medium = StateManager.medium
 	var hard = StateManager.hard
-	if !easy or !medium or !hard:
+	var special = StateManager.special
+	if !easy or !medium or !hard or !special:
 		timer.start(1.0)
 		return
 	
@@ -41,6 +42,10 @@ func insert_leaderboard():
 		$MarginContainer/VBoxContainer/Settings_Tab_Container/TabContainer/Hard.add_child(e)
 		e.call_deferred("set_text", hard[i][0], hard[i][1])
 	
-	print("Added")
+	for i in range(0, special.size()):
+		var e = entry.instantiate()
+		$MarginContainer/VBoxContainer/Settings_Tab_Container/TabContainer/Special.add_child(e)
+		e.call_deferred("set_text", special[i][0], special[i][1])	
+
 func on_exit_pressed() -> void:
 	exit_leaderboard_menu.emit()

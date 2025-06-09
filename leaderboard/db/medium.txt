@@ -1,4 +1,10 @@
+16,Kyle
 20,player1
 20,player1
 24,player1
 34,player1
+52,player1
+58,player1
+74,player1
+84,player1
+104,player1

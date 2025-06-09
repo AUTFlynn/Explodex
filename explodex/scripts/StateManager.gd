@@ -12,6 +12,8 @@ var mode = "Medium"
 var easy
 var medium
 var hard
+var special
+var username = "Player"
 
 func resetLevel():
 	get_tree().paused = false
@@ -52,7 +54,7 @@ func _on_leaderboard_received(result, response_code, headers, body):
 	easy = []
 	medium = []
 	hard = []
-	
+	special = []
 	for i in range(0,json.data.size()):
 		var entry = json.data[i]
 		
@@ -63,4 +65,5 @@ func _on_leaderboard_received(result, response_code, headers, body):
 				medium.append([entry.name, entry.score])
 			2:
 				hard.append([entry.name, entry.score])
-		print(medium)
+			3:
+				special.append([entry.name, entry.score])
