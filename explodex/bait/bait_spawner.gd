@@ -5,8 +5,8 @@ extends Node2D
 #the weight value effects probabilty of the bait spawning, it can be any number
 #the spawn chance is relative to all other weights
 @export var bait_scenes : Array[PackedScene]
-@export var bait_weights : Array[int]
-var weight_total : int
+@export var bait_weights : Array[float]
+var weight_total : float
 
 @onready var timer = $Timer
 
@@ -35,7 +35,6 @@ func _on_timer_timeout():
 	#random float to decided which bait to spawn
 	var seed = randf_range(0,1)
 	var prob = 0
-	
 	for i in range(0, bait_weights.size()):
 		prob += bait_weights[i] / weight_total
 		if seed < prob:

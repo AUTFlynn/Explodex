@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmu8nweto2aoh"]
+
+[ext_resource type="Script" uid="uid://cxbb3i2iy3fg4" path="res://bait/BaitTypes/Squid/squid.gd" id="1_m26oj"]
+[ext_resource type="Shader" uid="uid://cw71pmp6ucsdo" path="res://TileSystem/tile.gdshader" id="2_m26oj"]
+[ext_resource type="Texture2D" uid="uid://djh7k7qpq7ap0" path="res://Sprites/DevSprites/square.png" id="3_2jat3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4eq4"]
+shader = ExtResource("2_m26oj")
+shader_parameter/sprite_color = Color(3.65794e-06, 0.693451, 0.828661, 1)
+shader_parameter/effect_enabled = 1.0
+
+[node name="Squid" type="CharacterBody2D"]
+script = ExtResource("1_m26oj")
+metadata/_custom_type_script = "uid://b0olo00n37ve8"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_o4eq4")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2jat3")

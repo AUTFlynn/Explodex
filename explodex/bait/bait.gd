@@ -25,6 +25,21 @@ func _ready():
 			var t = tiles[pos]
 			target_tiles.append(t)
 			targets.append(t.position)
+	
+	#cretae our area to give passing tiles a grace window
+	var area = Area2D.new()
+	add_child(area)
+	area.connect("area_entered", Callable(self, "_on_area_entered"))
+	area.connect("area_exited", Callable(self, "_on_area_exited"))
+	#setup collision shape for our area
+	var collision_shape = CollisionShape2D.new()
+	var shape = CircleShape2D.new()
+	shape.radius = 8
+	collision_shape.shape = shape
+	area.add_child(collision_shape)
+	
+	area.input_pickable = true
+	area.connect("input_event", Callable(self, "_on_area_input_event"))
 
 func _physics_process(delta):
 	#move sequentially to the targets in our array
@@ -51,7 +66,24 @@ func _physics_process(delta):
 		if position.distance_to(end_positions[end_index]) < min_distance:
 			die()
 
+func _on_area_entered(area):
+	var t = area.get_parent()
+	if t.is_in_group("tile"):
+		t.grace = true
+
+func _on_area_exited(area):
+	var t = area.get_parent()
+	if t.is_in_group("tile"):
+		t.grace = false
+	
+func _on_area_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		kill()
+
 func die():
+	queue_free()
+
+func kill():
 	queue_free()
 	
 func target_reached(target):

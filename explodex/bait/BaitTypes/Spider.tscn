@@ -7,14 +7,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it8o4"]
 shader = ExtResource("2_27kqa")
 shader_parameter/sprite_color = Color(1, 0, 1, 1)
+shader_parameter/effect_enabled = 1.0
 
 [node name="Spider" type="CharacterBody2D"]
 script = ExtResource("1_27kqa")
-speed = 50.0
+speed = 65.0
+acceleration = 100.0
 metadata/_custom_type_script = "uid://b0olo00n37ve8"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 material = SubResource("ShaderMaterial_it8o4")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_sg2eq")
