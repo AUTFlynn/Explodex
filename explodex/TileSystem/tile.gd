@@ -31,13 +31,16 @@ func _input(event):
 				toggle_flag()
 
 func onClick(left):
-	if left:   
+	if left:
+		#check to see if a phantom is used on tile reveal 
+		if phantom_left_click():
+			return  
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
 			StateManager.world.spawn_bombs(pos)
 			StateManager.first_tile = true
 			cascadeRemove()
-		
+
 		##logic to remove tile (queue_free())
 		if bomb:
 			SoundManager.play(0)
@@ -87,6 +90,9 @@ func cascadeRemove(visited := {}, stop = false):
 func remove_tile():
 	$Sprite2D2.visible = false
 	dead = true
+	if flagged:
+		flagged = false
+		flag.visible = false
 	check_victory()
 
 #check victory conditions
@@ -104,6 +110,8 @@ func show_gameover():
 	get_tree().current_scene.queue_free()
 	var gameover = gameover_scene.instantiate()
 	get_tree().root.add_child(gameover)
+	phantom_game_over()
+
 
 #show victory
 func show_victory():
@@ -116,6 +124,9 @@ func show_victory():
 
 func toggle_flag():
 	#check to see if the tile is flagged and place one if not
+		if dead:
+			return
+		
 		flagged = !flagged
 		if flagged:
 			flag.visible = true
@@ -137,3 +148,16 @@ func update_adjacent_display():
 		$RichTextLabel.text = str(adjactent_bombs)
 	else:
 		$RichTextLabel.visible = false
+
+func phantom_left_click():
+	if StateManager.phantom_active:
+		# Prevent death, deactivate powerup
+		StateManager.phantom_active = false  
+		return true
+	return false
+
+func phantom_game_over():
+	#reset the phantom to original when game over has been activated.
+	StateManager.phantom_active = false
+	StateManager.phantom_available = true
+	StateManager.phantom_count = 1
