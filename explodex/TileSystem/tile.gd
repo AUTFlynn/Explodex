@@ -33,7 +33,7 @@ func _input(event):
 func onClick(left):
 	if left:
 		#check to see if a phantom is used on tile reveal 
-		if phantom_left_click():
+		if StateManager.phantom.click():
 			return  
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
@@ -87,9 +87,17 @@ func cascadeRemove(visited := {}, stop = false):
 				if !stop:
 					t.cascadeRemove(visited, true)
 
+@onready var bomb_texture = preload("res://Sprites/DevSprites/bomb_spritesheet2.png")  # Replace with your bomb texture path
+
 func remove_tile():
 	$Sprite2D2.visible = false
 	dead = true
+	
+	if bomb:
+		$Sprite2D.texture = bomb_texture
+		SoundManager.play(0)
+		
+	
 	if flagged:
 		flagged = false
 		flag.visible = false
@@ -98,7 +106,7 @@ func remove_tile():
 #check victory conditions
 func check_victory():
 	#display game over
-	if bomb:
+	if bomb and not StateManager.detonator.active:
 		show_gameover()
 	#display victory
 	if StateManager.world.all_safe_tiles_cleared():
@@ -113,6 +121,7 @@ func show_gameover():
 	StateManager.phantom.reset()
 	StateManager.bombflagger.reset()
 	StateManager.infrared.reset()
+	StateManager.detonator.reset()
 
 
 #show victory
@@ -121,6 +130,10 @@ func show_victory():
 	get_tree().current_scene.queue_free()
 	var victory = victory_scene.instantiate()
 	get_tree().root.add_child(victory)
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
+	StateManager.detonator.reset()
 
 
 
@@ -136,6 +149,9 @@ func toggle_flag():
 			flag.visible = false
 
 func update_adjacent_display():
+	if bomb:
+		$RichTextLabel.visible = false
+		return
 	var adjacent = 0
 	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1),
 	Vector2i(1,1),Vector2i(1,-1),Vector2i(-1,1),Vector2i(-1,-1)]
@@ -150,10 +166,3 @@ func update_adjacent_display():
 		$RichTextLabel.text = str(adjactent_bombs)
 	else:
 		$RichTextLabel.visible = false
-
-func phantom_left_click():
-	if StateManager.phantom.active:
-		# Prevent death, deactivate powerup
-		StateManager.phantom.active = false
-		return true
-	return false

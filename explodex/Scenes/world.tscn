@@ -32,6 +32,11 @@ offset_right = 76.0
 offset_bottom = 170.0
 text = "Infrared"
 
+[node name="Detonator" type="Button" parent="UI_Container"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Detonator"
+
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5a7ea")
 volume_db = -14.495
@@ -41,3 +46,4 @@ bus = &"Music"
 [connection signal="pressed" from="UI_Container/Phantom" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI_Container/BombFlagger" to="." method="_on_bomb_flagger_pressed"]
 [connection signal="pressed" from="UI_Container/Infrared" to="." method="_on_infrared_pressed"]
+[connection signal="pressed" from="UI_Container/Detonator" to="." method="_on_detonator_pressed"]

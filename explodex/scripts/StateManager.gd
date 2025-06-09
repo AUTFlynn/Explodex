@@ -13,12 +13,15 @@ var BombFlaggerClass = preload("res://PowerUps/BombFlagger.gd")
 var bombflagger: BombFlagger = BombFlaggerClass.new()
 var InfraredClass = preload("res://PowerUps/Infrared.gd")
 var infrared: Infrared = InfraredClass.new()
+var DetonatorClass = preload("res://PowerUps/Detonator.gd")
+var detonator: Detonator = DetonatorClass.new()
 
 func _ready():
 	#Start Phantom as deactive
 	add_child(phantom)
 	add_child(bombflagger)
 	add_child(infrared)
+	add_child(detonator)
 
 func resetLevel():
 	get_tree().paused = false

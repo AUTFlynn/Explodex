@@ -16,6 +16,13 @@ func activate():
 		return true
 	return false 
 
+func click():
+	if active:
+		# Prevent death, deactivate powerup
+		active = false
+		return true
+	return false
+
 func reset():
 	active = false  
 	available = true

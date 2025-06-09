@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://djh7k7qpq7ap0" path="res://Sprites/DevSprites/square.png" id="1_ht7x0"]
 [ext_resource type="Shader" uid="uid://cw71pmp6ucsdo" path="res://TileSystem/tile.gdshader" id="3_sl6ug"]
 [ext_resource type="Texture2D" uid="uid://dcof4aj2jpe6o" path="res://Sprites/DevSprites/flag.png" id="4_uec1m"]
-[ext_resource type="Texture2D" uid="uid://c0godkh4tjb2p" path="res://Sprites/DevSprites/bomb_circle.png" id="5_e3gk6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uec1m"]
+load_path = "res://.godot/imported/bomb_circle2.png-d03eabc20a664dae324ead11b876f84a.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl6ug"]
 shader = ExtResource("3_sl6ug")
@@ -18,6 +20,11 @@ shader_parameter/sprite_color = Color(1, 1, 1, 1)
 
 [node name="Tile" type="Node2D"]
 script = ExtResource("1_em5vh")
+
+[node name="Bomb" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+texture = SubResource("CompressedTexture2D_uec1m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sl6ug")
@@ -41,7 +48,3 @@ text = "1"
 visible = false
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("4_uec1m")
-
-[node name="Bomb" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("5_e3gk6")

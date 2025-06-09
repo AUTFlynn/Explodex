@@ -68,6 +68,8 @@ func _ready():
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
 	
+
+
 func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")
@@ -83,3 +85,7 @@ func _on_bomb_flagger_pressed() -> void:
 
 func _on_infrared_pressed() -> void:
 	StateManager.infrared.activate()
+
+
+func _on_detonator_pressed() -> void:
+	StateManager.detonator.activate()
