@@ -72,14 +72,7 @@ func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")
 	
-	#Reset Phantom usage
-	StateManager.phantom_active = true
-	StateManager.phantom_available = true
-	#Reset amount
-	StateManager.phantom_count = 1  
 
 func _on_button_pressed() -> void:
-	if StateManager.phantom_available and StateManager.phantom_count > 0:
-		StateManager.phantom_active = true
-		#Use one Phantom
-		StateManager.phantom_count -= 1  
+	StateManager.phantom.activate()
+	print("active")

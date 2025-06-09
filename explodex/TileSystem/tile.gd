@@ -150,14 +150,12 @@ func update_adjacent_display():
 		$RichTextLabel.visible = false
 
 func phantom_left_click():
-	if StateManager.phantom_active:
+	if StateManager.phantom.active:
 		# Prevent death, deactivate powerup
-		StateManager.phantom_active = false  
+		StateManager.phantom.active = false
 		return true
 	return false
 
 func phantom_game_over():
 	#reset the phantom to original when game over has been activated.
-	StateManager.phantom_active = false
-	StateManager.phantom_available = true
-	StateManager.phantom_count = 1
+	StateManager.phantom.reset()
