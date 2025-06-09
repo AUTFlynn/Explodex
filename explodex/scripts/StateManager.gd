@@ -15,6 +15,8 @@ var hard
 var special
 var username = "Player"
 
+var score = 0
+
 func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")

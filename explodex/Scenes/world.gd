@@ -71,5 +71,5 @@ func _ready():
 
 ##score timer
 func _on_timer_timeout():
-	StateManager.time += 1
-	$Timer.start(1.0)
+	StateManager.time += 0.1
+	$Timer.start(0.1)
