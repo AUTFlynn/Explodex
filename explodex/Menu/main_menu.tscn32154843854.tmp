@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btfcwjml0h0of" path="res://Options_Menu/options_menu.tscn" id="3_dtkyu"]
 [ext_resource type="AudioStream" uid="uid://brmvwpyb3lo13" path="res://music/Free Video Game Music - HeatleyBros - Game On.mp3" id="4_ohgnh"]
 
-[sub_resource type="SystemFont" id="SystemFont_ohgnh"]
+[sub_resource type="SystemFont" id="SystemFont_ci1se"]
 font_names = PackedStringArray("Impact")
 
 [sub_resource type="SystemFont" id="SystemFont_dtkyu"]
@@ -26,6 +26,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_sla5p")
@@ -56,7 +60,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 8
 theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 8
-theme_override_fonts/font = SubResource("SystemFont_ohgnh")
+theme_override_fonts/font = SubResource("SystemFont_ci1se")
 theme_override_font_sizes/font_size = 64
 text = "Explodex"
 horizontal_alignment = 1
