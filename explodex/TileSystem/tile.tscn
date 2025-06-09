@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://i1mgn2tl4erl"]
+[gd_scene load_steps=9 format=3 uid="uid://i1mgn2tl4erl"]
 
 [ext_resource type="Script" uid="uid://ll6ibjwjbokl" path="res://TileSystem/tile.gd" id="1_em5vh"]
 [ext_resource type="Texture2D" uid="uid://djh7k7qpq7ap0" path="res://Sprites/DevSprites/square.png" id="1_ht7x0"]
 [ext_resource type="Shader" uid="uid://cw71pmp6ucsdo" path="res://TileSystem/tile.gdshader" id="3_sl6ug"]
 [ext_resource type="Texture2D" uid="uid://dcof4aj2jpe6o" path="res://Sprites/DevSprites/flag.png" id="4_uec1m"]
+[ext_resource type="Texture2D" uid="uid://c0godkh4tjb2p" path="res://Sprites/DevSprites/bomb_circle.png" id="5_e3gk6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl6ug"]
 shader = ExtResource("3_sl6ug")
@@ -40,3 +41,7 @@ text = "1"
 visible = false
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("4_uec1m")
+
+[node name="Bomb" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_e3gk6")

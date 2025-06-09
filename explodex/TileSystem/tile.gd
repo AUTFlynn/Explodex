@@ -112,6 +112,7 @@ func show_gameover():
 	get_tree().root.add_child(gameover)
 	StateManager.phantom.reset()
 	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
 
 
 #show victory
