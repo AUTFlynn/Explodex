@@ -75,4 +75,7 @@ func resetLevel():
 
 func _on_button_pressed() -> void:
 	StateManager.phantom.activate()
-	print("active")
+
+
+func _on_bomb_flagger_pressed() -> void:
+	StateManager.bombflagger.activate()

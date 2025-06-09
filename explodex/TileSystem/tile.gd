@@ -110,7 +110,8 @@ func show_gameover():
 	get_tree().current_scene.queue_free()
 	var gameover = gameover_scene.instantiate()
 	get_tree().root.add_child(gameover)
-	phantom_game_over()
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
 
 
 #show victory
@@ -155,7 +156,3 @@ func phantom_left_click():
 		StateManager.phantom.active = false
 		return true
 	return false
-
-func phantom_game_over():
-	#reset the phantom to original when game over has been activated.
-	StateManager.phantom.reset()
