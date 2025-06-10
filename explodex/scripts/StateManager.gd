@@ -18,6 +18,25 @@ var username = "Player"
 var score : float = 0
 var bait_enabled = true
 
+var PhantomClass = preload("res://PowerUps/Phantom.gd")
+var phantom: Phantom = PhantomClass.new()
+var BombFlaggerClass = preload("res://PowerUps/BombFlagger.gd")
+var bombflagger: BombFlagger = BombFlaggerClass.new()
+var InfraredClass = preload("res://PowerUps/Infrared.gd")
+var infrared: Infrared = InfraredClass.new()
+var DetonatorClass = preload("res://PowerUps/Detonator.gd")
+var detonator: Detonator = DetonatorClass.new()
+var GambleClass = preload("res://PowerUps/Gamble.gd")
+var gamble: Gamble = GambleClass.new()
+
+func _ready():
+	#Start Phantom as deactive
+	add_child(phantom)
+	add_child(bombflagger)
+	add_child(infrared)
+	add_child(detonator)
+	add_child(gamble)
+
 func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")

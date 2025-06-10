@@ -14,7 +14,11 @@ func _on_continue_button_down() -> void:
 func _on_restart_button_down() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
-
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
+	StateManager.detonator.reset()
+	StateManager.gamble.reset()
 
 func _on_quit_button_down() -> void:
 	get_tree().paused = false

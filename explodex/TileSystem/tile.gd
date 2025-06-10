@@ -10,11 +10,14 @@ var adjactent_bombs : int = 0
 @onready var sprite = $Sprite2D
 @onready var victory_scene = preload("res://Victory/victory_screen.tscn")
 @onready var gameover_scene = preload("res://Gameover/gameover.tscn")
+
+@onready var bomb_texture = preload("res://Sprites/DevSprites/bomb_spritesheet2.png")  # Replace with your bomb texture path
 @onready var text = $RichTextLabel
 var flagged : bool = false
 
 @onready var flag = $flag
 
+var flagged : bool = false
 
 var grace = false
 var inked = false
@@ -34,12 +37,23 @@ func _input(event):
 				toggle_flag()
 
 func onClick(left):
-	if left:   
+	if left:
+		#check to see if a phantom is used on tile reveal 
+		if StateManager.phantom.click():
+			if bomb:
+				StateManager.phantom.play_phantom_die_sound()
+			else:
+				StateManager.phantom.play_phantom_sound()
+			return  
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
 			StateManager.time = 0
 			StateManager.world.spawn_bombs(pos)
 			StateManager.first_tile = true
+
+			cascadeRemove()
+
+		##logic to remove tile (queue_free())
 		if bomb:
 			SoundManager.play(0)
 		cascadeRemove()
@@ -70,12 +84,21 @@ func cascadeRemove(visited := {}, stop = false):
 func remove_tile():
 	$Sprite2D2.visible = false
 	dead = true
+	
+	if bomb:
+		$Sprite2D.texture = bomb_texture
+		if StateManager.detonator.active:
+			StateManager.detonator.play_sound()
+
+	if flagged:
+		flagged = false
+		flag.visible = false
 	check_victory()
 
 #check victory conditions
 func check_victory():
 	#display game over
-	if bomb:
+	if bomb and not StateManager.detonator.active:
 		show_gameover()
 	#display victory
 	if StateManager.world.all_safe_tiles_cleared():
@@ -87,6 +110,11 @@ func show_gameover():
 	get_tree().current_scene.queue_free()
 	var gameover = gameover_scene.instantiate()
 	get_tree().root.add_child(gameover)
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
+	StateManager.detonator.reset()
+	StateManager.gamble.reset()
 
 #show victory
 func show_victory():
@@ -94,11 +122,16 @@ func show_victory():
 	get_tree().current_scene.queue_free()
 	var victory = victory_scene.instantiate()
 	get_tree().root.add_child(victory)
-
-
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
+	StateManager.detonator.reset()
+	StateManager.gamble.reset()
 
 func toggle_flag():
 	#check to see if the tile is flagged and place one if not
+		if dead:
+			return
 		flagged = !flagged
 		if flagged:
 			flag.visible = true
@@ -106,6 +139,9 @@ func toggle_flag():
 			flag.visible = false
 
 func update_adjacent_display():
+	if bomb:
+		$RichTextLabel.visible = false
+		return
 	var adjacent = 0
 	var directions = [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1),
 	Vector2i(1,1),Vector2i(1,-1),Vector2i(-1,1),Vector2i(-1,-1)]
