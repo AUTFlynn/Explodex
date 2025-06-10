@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 SoundManager="*res://scripts/SoundManager.gd"
 StateManager="*res://scripts/StateManager.gd"
-LeaderboardTest="res://test/leaderboard_test.gd"
 
 [display]
 

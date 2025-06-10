@@ -15,9 +15,7 @@ var hard
 var special
 var username = "Player"
 
-var score = 0
-
-var score : float
+var score : float = 0
 var bait_enabled = true
 
 func resetLevel():
