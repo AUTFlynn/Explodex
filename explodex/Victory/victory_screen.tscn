@@ -8,9 +8,11 @@ bg_color = Color(0, 0, 0, 0.321569)
 
 [sub_resource type="SystemFont" id="SystemFont_5y5gb"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_jkujr"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbkn0"]
 bg_color = Color(0.55286, 0, 0.0081109, 1)
@@ -23,6 +25,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_fnkfn"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fd3l"]
 bg_color = Color(0.55286, 0, 0.0081109, 1)
