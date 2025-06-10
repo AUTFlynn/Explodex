@@ -13,6 +13,8 @@ func activate():
 		return true
 	return false 
 
+var bomb_sound = preload("res://sounds/bomb-countdown-beeps-6868.mp3")
+
 func reveal_bomb():
 	if active and StateManager.world:
 		# Find the first bomb tile in the game board
@@ -25,6 +27,17 @@ func reveal_bomb():
 				active = false
 				available = false
 				return  # Exit after revealing the first bomb
+
+func play_sound():
+	var sound_player = AudioStreamPlayer.new()
+	get_tree().root.add_child(sound_player)
+	sound_player.stream = bomb_sound
+	sound_player.play()
+
+	# Ensure sound player is removed after it plays
+	await get_tree().create_timer(5.0).timeout 
+	sound_player.queue_free()
+
 
 func reset():
 	active = false  

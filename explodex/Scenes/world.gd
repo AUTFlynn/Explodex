@@ -81,6 +81,7 @@ func _on_button_pressed() -> void:
 
 func _on_bomb_flagger_pressed() -> void:
 	StateManager.bombflagger.activate()
+	
 
 
 func _on_infrared_pressed() -> void:
@@ -89,3 +90,17 @@ func _on_infrared_pressed() -> void:
 
 func _on_detonator_pressed() -> void:
 	StateManager.detonator.activate()
+
+
+func _on_gamble_pressed() -> void:
+	StateManager.gamble.activate()
+
+
+func _on_restart_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
+	StateManager.detonator.reset()
+	StateManager.gamble.reset()

@@ -1,6 +1,7 @@
 extends Node
 class_name Phantom
 
+var phantom_sound = preload("res://sounds/classic-ghost-sound-95773.mp3")
 
 #Not active until player uses it
 var active: bool = false 
@@ -27,3 +28,13 @@ func reset():
 	active = false  
 	available = true
 	count = 1
+
+func play_sound():
+	var sound_player = AudioStreamPlayer.new()
+	get_tree().root.add_child(sound_player)
+	sound_player.stream = phantom_sound
+	sound_player.play()
+
+	# Ensure sound player is removed after it plays
+	await get_tree().create_timer(5.0).timeout 
+	sound_player.queue_free()

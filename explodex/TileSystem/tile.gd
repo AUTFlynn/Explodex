@@ -10,10 +10,14 @@ var adjactent_bombs : int = 0
 @onready var sprite = $Sprite2D
 @onready var victory_scene = preload("res://Victory/victory_screen.tscn")
 @onready var gameover_scene = preload("res://Gameover/gameover.tscn")
+@onready var bomb_texture = preload("res://Sprites/DevSprites/bomb_spritesheet2.png")  # Replace with your bomb texture path
+@onready var flag = $flag
+
+
 
 var flagged : bool = false
 
-@onready var flag = $flag
+
 
 
 ##mouse events for the tile
@@ -34,6 +38,7 @@ func onClick(left):
 	if left:
 		#check to see if a phantom is used on tile reveal 
 		if StateManager.phantom.click():
+			StateManager.phantom.play_sound()
 			return  
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
@@ -87,7 +92,7 @@ func cascadeRemove(visited := {}, stop = false):
 				if !stop:
 					t.cascadeRemove(visited, true)
 
-@onready var bomb_texture = preload("res://Sprites/DevSprites/bomb_spritesheet2.png")  # Replace with your bomb texture path
+
 
 func remove_tile():
 	$Sprite2D2.visible = false
@@ -95,7 +100,8 @@ func remove_tile():
 	
 	if bomb:
 		$Sprite2D.texture = bomb_texture
-		SoundManager.play(0)
+		if StateManager.detonator.active:
+			StateManager.detonator.play_sound()
 		
 	
 	if flagged:
@@ -122,7 +128,7 @@ func show_gameover():
 	StateManager.bombflagger.reset()
 	StateManager.infrared.reset()
 	StateManager.detonator.reset()
-
+	StateManager.gamble.reset()
 
 #show victory
 func show_victory():
@@ -134,8 +140,7 @@ func show_victory():
 	StateManager.bombflagger.reset()
 	StateManager.infrared.reset()
 	StateManager.detonator.reset()
-
-
+	StateManager.gamble.reset()
 
 func toggle_flag():
 	#check to see if the tile is flagged and place one if not
