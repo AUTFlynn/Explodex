@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb00tq7vs7csf"]
+[gd_scene load_steps=2 format=3 uid="uid://blqx3wwf4oaot"]
 
-[ext_resource type="Script" uid="uid://dspjcn1nx7bn8" path="res://Options_Menu/theme_button.gd" id="1_rarrr"]
+[ext_resource type="Script" path="res://Options_Menu/theme_button.gd" id="1_rarrr"]
 
 [node name="Theme_Button" type="Control"]
 layout_mode = 3
