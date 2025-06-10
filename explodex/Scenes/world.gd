@@ -183,7 +183,6 @@ var gamble_textures = [
 func update_gamble_display():
 	var charge_level = clamp(StateManager.gamble.charge, 0, 5)  # Ensure valid range
 	gamble_ui.texture = gamble_textures[charge_level]  # Set correct texture
-=======
 	apply_theme_background()
 
 ##score timer

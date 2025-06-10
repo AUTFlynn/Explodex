@@ -17,7 +17,6 @@ var flagged : bool = false
 
 @onready var flag = $flag
 
-var flagged : bool = false
 
 var grace = false
 var inked = false

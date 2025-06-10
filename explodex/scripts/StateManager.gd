@@ -36,13 +36,13 @@ func _ready():
 	add_child(infrared)
 	add_child(detonator)
 	add_child(gamble)
+	get_leaderboard()
 
 func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")
 
-func _ready():
-	get_leaderboard()
+
 
 func get_leaderboard():
 	var http = HTTPRequest.new()
