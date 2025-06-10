@@ -10,10 +10,14 @@ var adjactent_bombs : int = 0
 @onready var sprite = $Sprite2D
 @onready var victory_scene = preload("res://Victory/victory_screen.tscn")
 @onready var gameover_scene = preload("res://Gameover/gameover.tscn")
-
+@onready var text = $RichTextLabel
 var flagged : bool = false
 
 @onready var flag = $flag
+
+
+var grace = false
+var inked = false
 
 ##mouse events for the tile
 func _input(event):
@@ -23,7 +27,7 @@ func _input(event):
 		if abs(local_mouse_pos.x) < sprite_size/2 and abs(local_mouse_pos.y) < sprite_size/2:
 			if event.is_action("left_click"):
 				#prevent clicking flagged tiles
-				if not flagged:
+				if not flagged and not grace:
 					onClick(true)
 			if event.is_action("right_click"):
 				#use flag function to place or remove flag

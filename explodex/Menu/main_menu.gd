@@ -5,7 +5,9 @@ extends Control
 @onready var start_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Start_Button as Button
 @onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
 @onready var options_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Options_Button as Button
+
 @onready var options_menu = $Options_Menu
+
 @onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
 
 

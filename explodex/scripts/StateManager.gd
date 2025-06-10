@@ -17,6 +17,9 @@ var username = "Player"
 
 var score = 0
 
+var score : float
+var bait_enabled = true
+
 func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")
