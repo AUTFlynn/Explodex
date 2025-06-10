@@ -34,4 +34,3 @@ func apply_theme_background():
 		file.close()
 	
 	background_display.texture = background_paths[index]
-

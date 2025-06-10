@@ -83,7 +83,7 @@ func _ready():
 	tiles.clear()
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
-  apply_theme_background()
+	apply_theme_background()
 
 ##score timer
 func _on_timer_timeout():
