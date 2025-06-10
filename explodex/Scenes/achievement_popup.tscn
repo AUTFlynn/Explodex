@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvfalxqfywnxm"]
+
+[ext_resource type="Script" path="res://Scenes/achievement_popup.gd" id="1_hlta5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvel"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="AchievementPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hlta5")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_spvel")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "First Victory
+"
+
+[node name="DescriptionLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Win a game for the first time
+"

@@ -89,3 +89,7 @@ func _on_leaderboard_received(result, response_code, headers, body):
 				hard.append([entry.name, entry.score])
 			3:
 				special.append([entry.name, entry.score])
+
+func add_points(amt : float):
+	score += amt
+	world.score_board.text = "Score: " + str(score)
