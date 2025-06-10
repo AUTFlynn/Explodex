@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf0b331mvxpr4" path="res://bait/BaitTypes/spider.gd" id="1_27kqa"]
 [ext_resource type="Shader" uid="uid://cw71pmp6ucsdo" path="res://TileSystem/tile.gdshader" id="2_27kqa"]
-[ext_resource type="Texture2D" uid="uid://djh7k7qpq7ap0" path="res://Sprites/DevSprites/square.png" id="3_sg2eq"]
+[ext_resource type="Texture2D" uid="uid://b2rptopiyn5m4" path="res://bait/Sprites/sprite_3.png" id="3_27kqa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it8o4"]
 shader = ExtResource("2_27kqa")
@@ -17,6 +17,6 @@ metadata/_custom_type_script = "uid://b0olo00n37ve8"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
+texture_filter = 1
 material = SubResource("ShaderMaterial_it8o4")
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_sg2eq")
+texture = ExtResource("3_27kqa")

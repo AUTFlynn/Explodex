@@ -8,6 +8,8 @@ class_name bait
 @export var speed : float = 40
 @export var acceleration: float = 50
 
+@onready var sprite = $Sprite2D
+
 var targets = []
 var target_tiles = []
 const end_positions = [Vector2(-250, 0), Vector2(250, 0), Vector2(0, -250), Vector2(0,250)]
@@ -34,7 +36,7 @@ func _ready():
 	#setup collision shape for our area
 	var collision_shape = CollisionShape2D.new()
 	var shape = CircleShape2D.new()
-	shape.radius = 8
+	shape.radius = 12
 	collision_shape.shape = shape
 	area.add_child(collision_shape)
 	
@@ -65,6 +67,9 @@ func _physics_process(delta):
 		#delete if we reach it
 		if position.distance_to(end_positions[end_index]) < min_distance:
 			die()
+			
+func _process(delta):
+	look_at(Vector2(-velocity.y, -velocity.x))
 
 func _on_area_entered(area):
 	var t = area.get_parent()

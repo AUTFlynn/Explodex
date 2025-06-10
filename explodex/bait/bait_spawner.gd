@@ -26,7 +26,6 @@ func _ready():
 		weight_total += i
 
 func spawn(index):
-	print(index)
 	var b = bait_scenes[index].instantiate()
 	add_child(b)
 	b.position = spawn_positions[randi_range(0,3)]

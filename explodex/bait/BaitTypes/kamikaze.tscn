@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csx642f50xbb1" path="res://bait/BaitTypes/kamikaze.gd" id="1_m22va"]
 [ext_resource type="Shader" uid="uid://cw71pmp6ucsdo" path="res://TileSystem/tile.gdshader" id="1_nljgk"]
-[ext_resource type="Texture2D" uid="uid://djh7k7qpq7ap0" path="res://Sprites/DevSprites/square.png" id="2_m22va"]
+[ext_resource type="Texture2D" uid="uid://d17eqkcbeccug" path="res://bait/Sprites/sprite_2.png" id="3_m22va"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2vqo"]
 shader = ExtResource("1_nljgk")
@@ -18,6 +18,6 @@ metadata/_custom_type_script = "uid://b0olo00n37ve8"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
+texture_filter = 1
 material = SubResource("ShaderMaterial_y2vqo")
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_m22va")
+texture = ExtResource("3_m22va")
