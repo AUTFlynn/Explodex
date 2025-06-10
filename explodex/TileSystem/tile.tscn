@@ -11,14 +11,18 @@ load_path = "res://.godot/imported/bomb_circle2.png-d03eabc20a664dae324ead11b876
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl6ug"]
 shader = ExtResource("3_sl6ug")
 shader_parameter/sprite_color = Color(0.838897, 0.838897, 0.838897, 1)
+shader_parameter/effect_enabled = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uec1m"]
 shader = ExtResource("3_sl6ug")
 shader_parameter/sprite_color = Color(1, 1, 1, 1)
+shader_parameter/effect_enabled = 0.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sl6ug"]
 
-[node name="Tile" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uec1m"]
+
+[node name="Tile" type="Node2D" groups=["tile"]]
 script = ExtResource("1_em5vh")
 
 [node name="Bomb" type="Sprite2D" parent="."]
@@ -48,3 +52,8 @@ text = "1"
 visible = false
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("4_uec1m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uec1m")

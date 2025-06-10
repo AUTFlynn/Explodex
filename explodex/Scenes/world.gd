@@ -6,6 +6,13 @@ var t = preload("res://TileSystem/tile.tscn")
 #pause function
 @export var pause_menu_packed_scene : PackedScene = null
 @onready var ui_container: CanvasLayer = $UI_Container as CanvasLayer
+@onready var background_display = $BackgroundDisplay
+
+var background_paths = [
+	preload("res://Background/Background_004.png"), # Normal (for game)
+	preload("res://Background/Background_005.png"), # Science (for game)
+	preload("res://Background/Background_006.png")  # Space (for game)
+]
 
 func _unhandled_key_input(event) -> void:
 	if event.is_action("pause"):
@@ -58,12 +65,22 @@ func all_safe_tiles_cleared():
 			return false
 	return true
 
+func apply_theme_background():
+	var index := 0
+	if FileAccess.file_exists("user://theme.cfg"):
+		var file = FileAccess.open("user://theme.cfg", FileAccess.READ)
+		index = int(file.get_line())
+		file.close()
+
+	background_display.texture = background_paths[index]
+	
 func _ready():
 	get_tree().paused = false  # unpause in case it's a restart
 	StateManager.world = self
 	tiles.clear()
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
+
 	update_phantom_display()
 	update_flagger_display()
 	update_infrared_display()
@@ -166,3 +183,10 @@ var gamble_textures = [
 func update_gamble_display():
 	var charge_level = clamp(StateManager.gamble.charge, 0, 5)  # Ensure valid range
 	gamble_ui.texture = gamble_textures[charge_level]  # Set correct texture
+=======
+	apply_theme_background()
+
+##score timer
+func _on_timer_timeout():
+	StateManager.time += 0.1
+	$Timer.start(0.1)
