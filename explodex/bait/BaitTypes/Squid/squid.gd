@@ -3,11 +3,11 @@ extends bait
 var ink = preload("res://bait/BaitTypes/Squid/ink.tscn")
 
 func die():
-	StateManager.score -= 10
+	StateManager.add_points(-10)
 	queue_free()
 
 func kill():
-	StateManager.score += 10
+	StateManager.add_points(10)
 	queue_free()
 
 func target_reached(target):

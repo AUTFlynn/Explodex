@@ -8,7 +8,7 @@ var t = preload("res://TileSystem/tile.tscn")
 @onready var ui_container: CanvasLayer = $UI_Container as CanvasLayer
 @onready var background_display = $BackgroundDisplay
 @onready var theme_music: AudioStreamPlayer = $ThemeMusic
-
+@onready var score_board = $RichTextLabel
 
 var background_paths = [
 	preload("res://Background/Background_004.png"), # Normal (for game)

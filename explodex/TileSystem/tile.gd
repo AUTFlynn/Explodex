@@ -81,6 +81,7 @@ func cascadeRemove(visited := {}, stop = false):
 					t.cascadeRemove(visited, true)
 
 func remove_tile():
+	StateManager.add_points(1)
 	$Sprite2D2.visible = false
 	dead = true
 	

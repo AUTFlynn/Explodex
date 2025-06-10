@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ctq5bwxyhv6uk"]
+[gd_scene load_steps=52 format=3 uid="uid://ctq5bwxyhv6uk"]
 
 [ext_resource type="Script" uid="uid://x0lj2pngskl8" path="res://Scenes/world.gd" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://cvltd3limee7u" path="res://Pause/pause_menu.tscn" id="2_go701"]
@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://d265vqlvg0rs7" path="res://Sprites/DevSprites/InfraredIcon.png" id="31_13n8b"]
 [ext_resource type="Texture2D" uid="uid://dn6ba8nrt2gt2" path="res://Sprites/DevSprites/DetonatorIcon.png" id="32_uqdn7"]
 [ext_resource type="Texture2D" uid="uid://dn7egmqpkiftx" path="res://Sprites/DevSprites/GambleIcon.png" id="33_gwaj6"]
+[ext_resource type="SystemFont" uid="uid://u60k1yxpj6yc" path="res://Menu/font.tres" id="51_l33cg"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a02cp")
@@ -557,6 +558,14 @@ bait_weights = Array[float]([10.0, 10.0, 2.5])
 wait_time = 0.1
 one_shot = true
 autostart = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -182.0
+offset_top = -103.0
+offset_right = -79.0
+offset_bottom = -80.0
+theme_override_fonts/normal_font = ExtResource("51_l33cg")
+text = "Score : "
 
 [connection signal="pressed" from="UI_Container/Phantom" to="." method="_on_phantom_pressed"]
 [connection signal="pressed" from="UI_Container/Gamble" to="." method="_on_gamble_pressed"]
