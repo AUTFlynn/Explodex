@@ -5,10 +5,11 @@ extends Control
 @onready var start_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Start_Button as Button
 @onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
 @onready var options_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Options_Button as Button
-@onready var options_menu: OptionsMenu = $Options_Menu as OptionsMenu
-@onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
 @onready var background_display = $BackgroundDisplay
 @onready var theme_music: AudioStreamPlayer = $MusicStreamPlayer
+@onready var options_menu: OptionsMenu = $Options_Menu as OptionsMenu
+@onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
+
 
 
 @onready var start_level = preload("res://Scenes/world.tscn") as PackedScene
@@ -49,13 +50,13 @@ func _on_theme_changed(index: int) -> void:
 	apply_theme_background()
 
 func handle_connecting_signals() -> void:
+	options_menu.theme_music_changed.connect(_on_theme_music_changed)
 	start_button.button_down.connect(on_start_pressed)
 	options_button.button_down.connect(on_options_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 	options_menu.background_theme_changed.connect(_on_theme_changed)
-	options_menu.theme_music_changed.connect(_on_theme_music_changed)
-	
+
 func apply_theme_background():
 	var index := 0
 	if FileAccess.file_exists("user://theme.cfg"):

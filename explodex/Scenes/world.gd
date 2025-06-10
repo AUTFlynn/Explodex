@@ -82,7 +82,6 @@ func apply_theme_background():
 		var file = FileAccess.open("user://theme.cfg", FileAccess.READ)
 		index = int(file.get_line())
 		file.close()
-
 	background_display.texture = background_paths[index]
 
 func play_theme_music():
@@ -95,10 +94,10 @@ func play_theme_music():
 	theme_music.play()
 	
 func _ready():
+	apply_theme_background()
+	play_theme_music()
 	get_tree().paused = false  # unpause in case it's a restart
 	StateManager.world = self
 	tiles.clear()
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
-	apply_theme_background()
-	play_theme_music()
