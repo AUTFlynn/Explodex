@@ -7,6 +7,13 @@ var t = preload("res://TileSystem/tile.tscn")
 #pause function
 @export var pause_menu_packed_scene : PackedScene = null
 @onready var ui_container: CanvasLayer = $UI_Container as CanvasLayer
+@onready var background_display = $BackgroundDisplay
+
+var background_paths = [
+	preload("res://Background/Background_004.png"), # Normal (for game)
+	preload("res://Background/Background_005.png"), # Science (for game)
+	preload("res://Background/Background_006.png")  # Space (for game)
+]
 
 func _unhandled_key_input(event) -> void:
 	if event.is_action("pause"):
@@ -61,9 +68,19 @@ func all_safe_tiles_cleared():
 			return false
 	return true
 
+func apply_theme_background():
+	var index := 0
+	if FileAccess.file_exists("user://theme.cfg"):
+		var file = FileAccess.open("user://theme.cfg", FileAccess.READ)
+		index = int(file.get_line())
+		file.close()
+
+	background_display.texture = background_paths[index]
+	
 func _ready():
 	get_tree().paused = false  # unpause in case it's a restart
 	StateManager.world = self
 	tiles.clear()
 	StateManager.first_tile = false  # reset first-tile logic
 	create_grid()
+	apply_theme_background()
