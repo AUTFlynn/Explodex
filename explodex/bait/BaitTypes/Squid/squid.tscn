@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmu8nweto2aoh"]
+
+[ext_resource type="Script" uid="uid://cxbb3i2iy3fg4" path="res://bait/BaitTypes/Squid/squid.gd" id="1_m26oj"]
+[ext_resource type="Texture2D" uid="uid://cvnh5mlceuvsp" path="res://bait/Sprites/sprite_1.png" id="2_lk2gk"]
+
+[node name="Squid" type="CharacterBody2D"]
+script = ExtResource("1_m26oj")
+metadata/_custom_type_script = "uid://b0olo00n37ve8"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+texture = ExtResource("2_lk2gk")

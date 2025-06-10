@@ -1,9 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctq5bwxyhv6uk"]
+[gd_scene load_steps=46 format=3 uid="uid://ctq5bwxyhv6uk"]
 
 [ext_resource type="Script" uid="uid://x0lj2pngskl8" path="res://Scenes/world.gd" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://cvltd3limee7u" path="res://Pause/pause_menu.tscn" id="2_go701"]
 [ext_resource type="AudioStream" uid="uid://brmvwpyb3lo13" path="res://music/Free Video Game Music - HeatleyBros - Game On.mp3" id="3_5a7ea"]
 [ext_resource type="Texture2D" uid="uid://c4f552gmcxrbk" path="res://Background/Background_001.png" id="3_8j60k"]
+[ext_resource type="Texture2D" uid="uid://cqil5lrq8hawh" path="res://Sprites/DevSprites/LabelBackground.png" id="3_atqvy"]
+[ext_resource type="Texture2D" uid="uid://cp6cojkrj5fcp" path="res://Sprites/DevSprites/PhantomButton.png" id="3_o2rbt"]
+[ext_resource type="Texture2D" uid="uid://bjw0jdelf4g00" path="res://Sprites/DevSprites/PhantomPressed.png" id="4_1vso6"]
+[ext_resource type="PackedScene" uid="uid://djp6a4saxq4np" path="res://bait/BaitTypes/Spider.tscn" id="5_5ukr8"]
+[ext_resource type="PackedScene" uid="uid://lyya5odmmny0" path="res://bait/BaitSpawner.tscn" id="5_fo5ed"]
+[ext_resource type="Texture2D" uid="uid://7dsuco0haaie" path="res://Sprites/DevSprites/Phantom1.png" id="5_k7acu"]
+[ext_resource type="Texture2D" uid="uid://c77os3q4u1r00" path="res://Sprites/DevSprites/GambleButton.png" id="5_r74th"]
+[ext_resource type="Texture2D" uid="uid://jshia82mh2nt" path="res://Sprites/DevSprites/GamblePressed.png" id="6_04jkj"]
+[ext_resource type="Texture2D" uid="uid://d2c2kxmnue5cm" path="res://Sprites/DevSprites/Phantom2.png" id="6_5v1tr"]
+[ext_resource type="PackedScene" uid="uid://bmu8nweto2aoh" path="res://bait/BaitTypes/Squid/squid.tscn" id="6_o06y3"]
+[ext_resource type="Texture2D" uid="uid://c1f3ol730nnj8" path="res://Sprites/DevSprites/Phantom3.png" id="7_0fj1v"]
+[ext_resource type="Texture2D" uid="uid://mdmb3iyvpkxg" path="res://Sprites/DevSprites/DetonatorButton.png" id="7_lkcvt"]
+[ext_resource type="PackedScene" uid="uid://bk32tmn5rin25" path="res://bait/BaitTypes/kamikaze.tscn" id="7_o06y3"]
+[ext_resource type="Texture2D" uid="uid://vaco6hdmw5xh" path="res://Sprites/DevSprites/DetonatorPressed.png" id="8_atqvy"]
+[ext_resource type="Texture2D" uid="uid://bowah553ii25" path="res://Sprites/DevSprites/Phantom4.png" id="8_ikia7"]
+[ext_resource type="Texture2D" uid="uid://c8q0pv5v5xa1e" path="res://Sprites/DevSprites/Flagger0.png" id="9_dt0r1"]
+[ext_resource type="Texture2D" uid="uid://bv7j6gdv300ec" path="res://Sprites/DevSprites/InfraredButton.png" id="9_w5giw"]
+[ext_resource type="Texture2D" uid="uid://e6fwmuxh2ues" path="res://Sprites/DevSprites/InfraredPressed.png" id="10_jwdyn"]
+[ext_resource type="Texture2D" uid="uid://c3vg88g64hjlt" path="res://Sprites/DevSprites/Flagger1.png" id="10_qebug"]
+[ext_resource type="Texture2D" uid="uid://c27xll0dyjmt4" path="res://Sprites/DevSprites/Flagger2.png" id="11_o2rbt"]
+[ext_resource type="Texture2D" uid="uid://23paf7sb7w63" path="res://Sprites/DevSprites/FlaggerButton.png" id="11_t6yt7"]
+[ext_resource type="Texture2D" uid="uid://qpm31tgkfdru" path="res://Sprites/DevSprites/Flagger3.png" id="12_1vso6"]
+[ext_resource type="Texture2D" uid="uid://b4i7nlsapr40a" path="res://Sprites/DevSprites/FlaggerPressed.png" id="12_al5m0"]
+[ext_resource type="Texture2D" uid="uid://by2072vhc65dk" path="res://Sprites/DevSprites/Flagger4.png" id="13_3ua1v"]
+[ext_resource type="Texture2D" uid="uid://br70c4kx44v7s" path="res://Sprites/DevSprites/ExitButton.png" id="13_04jkj"]
+[ext_resource type="Texture2D" uid="uid://duims62h66qag" path="res://Sprites/DevSprites/HoverButton.png" id="14_lkcvt"]
+[ext_resource type="Texture2D" uid="uid://bh08w7oknwarf" path="res://Sprites/DevSprites/Infrared0.png" id="14_r0ikl"]
+[ext_resource type="Texture2D" uid="uid://7xcvw8t6oiji" path="res://Sprites/DevSprites/Infrared1.png" id="15_opbav"]
+[ext_resource type="Texture2D" uid="uid://bggxhfc3rcko0" path="res://Sprites/DevSprites/Infrared2.png" id="16_coyub"]
+[ext_resource type="Texture2D" uid="uid://ok3ohltuayj4" path="res://Sprites/DevSprites/Infrared3.png" id="17_ochwf"]
+[ext_resource type="Texture2D" uid="uid://vrb10xjhtwaq" path="res://Sprites/DevSprites/Infrared4.png" id="18_p5wkl"]
+[ext_resource type="Texture2D" uid="uid://d2mf885a0yykq" path="res://Sprites/DevSprites/Detonator0.png" id="19_r74th"]
+[ext_resource type="Texture2D" uid="uid://ckc5db47wthey" path="res://Sprites/DevSprites/Detonator1.png" id="20_04jkj"]
+[ext_resource type="Texture2D" uid="uid://bldrohykbc5gu" path="res://Sprites/DevSprites/Detonator2.png" id="21_lkcvt"]
+[ext_resource type="Texture2D" uid="uid://nh22jquhab8s" path="res://Sprites/DevSprites/Detonator3.png" id="22_atqvy"]
+[ext_resource type="Texture2D" uid="uid://bdrnedmm11vbd" path="res://Sprites/DevSprites/Detonator4.png" id="23_w5giw"]
+[ext_resource type="Texture2D" uid="uid://bsocao5s6ikrv" path="res://Sprites/DevSprites/Gamble0.png" id="24_jwdyn"]
+[ext_resource type="Texture2D" uid="uid://h21xdq5okngp" path="res://Sprites/DevSprites/Gamble1.png" id="25_t6yt7"]
+[ext_resource type="Texture2D" uid="uid://cw8p7eis5dtwe" path="res://Sprites/DevSprites/Gamble2.png" id="26_al5m0"]
+[ext_resource type="Texture2D" uid="uid://b12tcai2h1mts" path="res://Sprites/DevSprites/Gamble3.png" id="27_6mm6r"]
+[ext_resource type="Texture2D" uid="uid://dj7ksfxnq78s7" path="res://Sprites/DevSprites/Gamble4.png" id="28_xcb5n"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a02cp")
@@ -24,10 +65,456 @@ texture = ExtResource("3_8j60k")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
+[node name="PowerUps" type="CanvasLayer" parent="."]
+
+[node name="PhantomBack" type="TextureRect" parent="PowerUps"]
+offset_left = 305.0
+offset_top = 579.0
+offset_right = 409.0
+offset_bottom = 646.0
+texture = ExtResource("3_atqvy")
+
+[node name="GambleBack" type="TextureRect" parent="PowerUps"]
+offset_left = 740.0
+offset_top = 579.0
+offset_right = 844.0
+offset_bottom = 646.0
+texture = ExtResource("3_atqvy")
+
+[node name="DetonatorBack" type="TextureRect" parent="PowerUps"]
+offset_left = 632.0
+offset_top = 579.0
+offset_right = 736.0
+offset_bottom = 646.0
+texture = ExtResource("3_atqvy")
+
+[node name="InfraredBack" type="TextureRect" parent="PowerUps"]
+offset_left = 525.0
+offset_top = 579.0
+offset_right = 629.0
+offset_bottom = 646.0
+texture = ExtResource("3_atqvy")
+
+[node name="FlaggerBack" type="TextureRect" parent="PowerUps"]
+offset_left = 415.0
+offset_top = 579.0
+offset_right = 519.0
+offset_bottom = 646.0
+texture = ExtResource("3_atqvy")
+
+[node name="Phantom0" type="TextureRect" parent="PowerUps"]
+offset_left = 308.0
+offset_top = 618.0
+offset_right = 410.0
+offset_bottom = 651.0
+texture = ExtResource("3_8j60k")
+
+[node name="Phantom1" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 308.0
+offset_top = 618.0
+offset_right = 410.0
+offset_bottom = 651.0
+texture = ExtResource("5_k7acu")
+
+[node name="Phantom2" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 308.0
+offset_top = 618.0
+offset_right = 410.0
+offset_bottom = 651.0
+texture = ExtResource("6_5v1tr")
+
+[node name="Phantom3" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 308.0
+offset_top = 618.0
+offset_right = 410.0
+offset_bottom = 651.0
+texture = ExtResource("7_0fj1v")
+
+[node name="Phantom4" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 308.0
+offset_top = 618.0
+offset_right = 410.0
+offset_bottom = 651.0
+texture = ExtResource("8_ikia7")
+
+[node name="BombFlagger0" type="TextureRect" parent="PowerUps"]
+offset_left = 417.0
+offset_top = 618.0
+offset_right = 519.0
+offset_bottom = 651.0
+texture = ExtResource("9_dt0r1")
+
+[node name="BombFlagger1" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 417.0
+offset_top = 618.0
+offset_right = 519.0
+offset_bottom = 651.0
+texture = ExtResource("10_qebug")
+
+[node name="BombFlagger2" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 417.0
+offset_top = 618.0
+offset_right = 519.0
+offset_bottom = 651.0
+texture = ExtResource("11_o2rbt")
+
+[node name="BombFlagger3" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 417.0
+offset_top = 618.0
+offset_right = 517.0
+offset_bottom = 651.0
+texture = ExtResource("12_1vso6")
+
+[node name="BombFlagger4" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 417.0
+offset_top = 615.0
+offset_right = 519.0
+offset_bottom = 648.0
+texture = ExtResource("13_3ua1v")
+
+[node name="Infrared0" type="TextureRect" parent="PowerUps"]
+offset_left = 526.0
+offset_top = 618.0
+offset_right = 628.0
+offset_bottom = 651.0
+texture = ExtResource("14_r0ikl")
+
+[node name="Infrared1" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 526.0
+offset_top = 618.0
+offset_right = 628.0
+offset_bottom = 651.0
+texture = ExtResource("15_opbav")
+
+[node name="Infrared2" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 526.0
+offset_top = 618.0
+offset_right = 628.0
+offset_bottom = 651.0
+texture = ExtResource("16_coyub")
+
+[node name="Infrared3" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 526.0
+offset_top = 618.0
+offset_right = 628.0
+offset_bottom = 651.0
+texture = ExtResource("17_ochwf")
+
+[node name="Infrared4" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 526.0
+offset_top = 618.0
+offset_right = 628.0
+offset_bottom = 651.0
+texture = ExtResource("18_p5wkl")
+
+[node name="Detonator0" type="TextureRect" parent="PowerUps"]
+offset_left = 634.0
+offset_top = 618.0
+offset_right = 736.0
+offset_bottom = 651.0
+texture = ExtResource("19_r74th")
+
+[node name="Detonator1" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 634.0
+offset_top = 618.0
+offset_right = 736.0
+offset_bottom = 651.0
+texture = ExtResource("20_04jkj")
+
+[node name="Detonator2" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 634.0
+offset_top = 618.0
+offset_right = 736.0
+offset_bottom = 651.0
+texture = ExtResource("21_lkcvt")
+
+[node name="Detonator3" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 634.0
+offset_top = 618.0
+offset_right = 736.0
+offset_bottom = 651.0
+texture = ExtResource("22_atqvy")
+
+[node name="Detonator4" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 634.0
+offset_top = 618.0
+offset_right = 736.0
+offset_bottom = 651.0
+texture = ExtResource("23_w5giw")
+
+[node name="Gamble0" type="TextureRect" parent="PowerUps"]
+offset_left = 740.0
+offset_top = 618.0
+offset_right = 842.0
+offset_bottom = 651.0
+texture = ExtResource("24_jwdyn")
+
+[node name="Gamble1" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 742.0
+offset_top = 618.0
+offset_right = 844.0
+offset_bottom = 651.0
+texture = ExtResource("25_t6yt7")
+
+[node name="Gamble2" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 742.0
+offset_top = 618.0
+offset_right = 844.0
+offset_bottom = 651.0
+texture = ExtResource("26_al5m0")
+
+[node name="Gamble3" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 742.0
+offset_top = 618.0
+offset_right = 844.0
+offset_bottom = 651.0
+texture = ExtResource("27_6mm6r")
+
+[node name="Gamble4" type="TextureRect" parent="PowerUps"]
+visible = false
+offset_left = 742.0
+offset_top = 618.0
+offset_right = 844.0
+offset_bottom = 651.0
+texture = ExtResource("28_xcb5n")
+
 [node name="UI_Container" type="CanvasLayer" parent="."]
 
+
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+[node name="Phantom" type="TextureButton" parent="UI_Container"]
+offset_left = 306.0
+offset_top = 618.0
+offset_right = 334.0
+offset_bottom = 644.0
+texture_normal = ExtResource("3_o2rbt")
+texture_pressed = ExtResource("4_1vso6")
+stretch_mode = 0
+
+[node name="Gamble" type="TextureButton" parent="UI_Container"]
+offset_left = 738.0
+offset_top = 618.0
+offset_right = 766.0
+offset_bottom = 644.0
+texture_normal = ExtResource("5_r74th")
+texture_pressed = ExtResource("6_04jkj")
+stretch_mode = 0
+
+[node name="Detonator" type="TextureButton" parent="UI_Container"]
+offset_left = 632.0
+offset_top = 618.0
+offset_right = 660.0
+offset_bottom = 644.0
+texture_normal = ExtResource("7_lkcvt")
+texture_pressed = ExtResource("8_atqvy")
+stretch_mode = 0
+
+[node name="Infrared" type="TextureButton" parent="UI_Container"]
+offset_left = 525.0
+offset_top = 617.0
+offset_right = 553.0
+offset_bottom = 643.0
+texture_normal = ExtResource("9_w5giw")
+texture_pressed = ExtResource("10_jwdyn")
+stretch_mode = 0
+
+[node name="BombFlagger" type="TextureButton" parent="UI_Container"]
+offset_left = 416.0
+offset_top = 618.0
+offset_right = 444.0
+offset_bottom = 644.0
+texture_normal = ExtResource("11_t6yt7")
+texture_pressed = ExtResource("12_al5m0")
+stretch_mode = 0
+
+[node name="RestartButton" type="TextureButton" parent="UI_Container"]
+offset_left = 955.0
+offset_top = 604.0
+offset_right = 1090.0
+offset_bottom = 636.0
+texture_normal = ExtResource("13_04jkj")
+texture_pressed = ExtResource("13_04jkj")
+texture_hover = ExtResource("14_lkcvt")
+stretch_mode = 0
+
+[node name="RestartLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 997.0
+offset_top = 605.0
+offset_right = 1056.0
+offset_bottom = 634.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Restart"
+
+[node name="ShopButton" type="TextureButton" parent="UI_Container"]
+offset_left = 72.0
+offset_top = 604.0
+offset_right = 207.0
+offset_bottom = 636.0
+texture_normal = ExtResource("13_04jkj")
+texture_pressed = ExtResource("13_04jkj")
+texture_hover = ExtResource("14_lkcvt")
+stretch_mode = 0
+
+[node name="ShopLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 121.0
+offset_top = 605.0
+offset_right = 165.0
+offset_bottom = 634.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Shop"
+
+[node name="PhantomLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 322.0
+offset_top = 595.0
+offset_right = 398.0
+offset_bottom = 624.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Phantom"
+
+[node name="FlaggerLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 439.0
+offset_top = 595.0
+offset_right = 502.0
+offset_bottom = 624.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Flagger"
+
+[node name="InfraredLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 546.0
+offset_top = 595.0
+offset_right = 618.0
+offset_bottom = 624.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Infrared"
+
+[node name="DetonatorLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 645.0
+offset_top = 595.0
+offset_right = 728.0
+offset_bottom = 624.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Detonator"
+
+[node name="GambleLabel" type="RichTextLabel" parent="UI_Container"]
+offset_left = 762.0
+offset_top = 595.0
+offset_right = 825.0
+offset_bottom = 624.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/text_highlight_v_padding = 0
+theme_override_constants/text_highlight_h_padding = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_separation = 0
+text = "Gamble"
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 stream = ExtResource("3_5a7ea")
 volume_db = -14.495
 autoplay = true
 bus = &"Music"
+
+[node name="BaitSpawner" parent="." instance=ExtResource("5_fo5ed")]
+bait_scenes = Array[PackedScene]([ExtResource("5_5ukr8"), ExtResource("6_o06y3"), ExtResource("7_o06y3")])
+bait_weights = Array[float]([10.0, 10.0, 2.5])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="UI_Container/Phantom" to="." method="_on_phantom_pressed"]
+[connection signal="pressed" from="UI_Container/Gamble" to="." method="_on_gamble_pressed"]
+[connection signal="pressed" from="UI_Container/Detonator" to="." method="_on_detonator_pressed"]
+[connection signal="pressed" from="UI_Container/Infrared" to="." method="_on_infrared_pressed"]
+[connection signal="pressed" from="UI_Container/BombFlagger" to="." method="_on_bomb_flagger_pressed"]
+[connection signal="pressed" from="UI_Container/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI_Container/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

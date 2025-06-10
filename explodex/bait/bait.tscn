@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbm7h2fqybd1j"]
+
+[ext_resource type="Script" uid="uid://b0olo00n37ve8" path="res://bait/bait.gd" id="1_rjuqc"]
+[ext_resource type="Texture2D" uid="uid://djh7k7qpq7ap0" path="res://Sprites/DevSprites/square.png" id="2_o1gr8"]
+
+[node name="Bait" type="CharacterBody2D"]
+script = ExtResource("1_rjuqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o1gr8")

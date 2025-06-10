@@ -14,6 +14,11 @@ func _on_restart_button_down() -> void:
 	#reset tiles to prevent instant victory or gameover
 	StateManager.first_tile = false
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	StateManager.phantom.reset()
+	StateManager.bombflagger.reset()
+	StateManager.infrared.reset()
+	StateManager.detonator.reset()
+	StateManager.gamble.reset()
 
 func _on_quit_button_down() -> void:
 	get_tree().paused = false
@@ -21,6 +26,9 @@ func _on_quit_button_down() -> void:
 	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
 
 func _ready():
+
+	$CanvasLayer/PanelContainer/MarginContainer/Display/score_text.text = str(StateManager.time) + " Seconds"
+
 	apply_theme_background()
 	
 func apply_theme_background():
