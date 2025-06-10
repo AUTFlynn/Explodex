@@ -20,6 +20,7 @@ offset_bottom = 80.0
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(264, 0)
+layout_mode = 0
 offset_left = 224.0
 offset_top = 34.0
 offset_right = 488.0
