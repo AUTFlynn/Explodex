@@ -10,20 +10,20 @@ var weight_total : float
 
 @onready var timer = $Timer
 
-var enabled = true
-
 var min_spawn_time = 10
 var max_spawn_time = 20
 const spawn_positions = [Vector2(-250, 0), Vector2(250, 0), Vector2(0, -250), Vector2(0,250)]
 
 func _ready():
-	#begin the timer with a random value in our range
-	timer.start(randf_range(min_spawn_time, max_spawn_time)) 
-	
 	#calculate our weight total, will be used to get probabilty
 	weight_total = 0
 	for i in bait_weights:
 		weight_total += i
+	
+	if StateManager.bait_enabled:
+		#begin the timer with a random value in our range
+		timer.start(randf_range(min_spawn_time, max_spawn_time)) 
+	
 
 func spawn(index):
 	var b = bait_scenes[index].instantiate()
