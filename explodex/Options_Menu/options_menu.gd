@@ -5,6 +5,7 @@ extends Control
 
 signal exit_options_menu
 signal background_theme_changed
+signal theme_music_changed
 
 func _ready():
 	exit_button.button_down.connect(on_exit_pressed)
@@ -20,6 +21,7 @@ func on_exit_pressed() -> void:
 func _on_theme_selected(index: int):
 	save_theme_choice(index)
 	emit_signal("background_theme_changed", index)
+	emit_signal("theme_music_changed", index)
 
 func save_theme_choice(index: int):
 	var file = FileAccess.open("user://theme.cfg", FileAccess.WRITE)
