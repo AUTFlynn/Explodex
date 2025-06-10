@@ -1,7 +1,16 @@
+
+[gd_scene load_steps=12 format=3 uid="uid://dwgqi4xo8fgc1"]
+
+[ext_resource type="Script" uid="uid://dgv86a2mwtoyc" path="res://Victory/victory_screen.gd" id="1_5y5gb"]
+[ext_resource type="Texture2D" uid="uid://8enk50ld8klc" path="res://Victory/Assets/VictoryBackground.png" id="1_jkujr"]
+[ext_resource type="FontFile" uid="uid://1emqc73xxokj" path="res://Victory/Assets/Super Squad Italic.otf" id="2_5y5gb"]
+[ext_resource type="Script" uid="uid://c8lw3ujg8085u" path="res://Victory/api_call.gd" id="4_fnkfn"]
+
 [gd_scene load_steps=13 format=3 uid="uid://dwgqi4xo8fgc1"]
 
 [ext_resource type="Script" uid="uid://dgv86a2mwtoyc" path="res://Victory/victory_screen.gd" id="1_5y5gb"]
 [ext_resource type="Texture2D" uid="uid://8enk50ld8klc" path="res://Victory/Assets/VictoryBackground.png" id="1_jkujr"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnkfn"]
 bg_color = Color(0, 0, 0, 0.321569)
@@ -106,6 +115,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1fd3l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qjo04")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6plfd")
 text = "Quit"
+
+[node name="score_text" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/Display"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("2_5y5gb")
+theme_override_font_sizes/font_size = 16
+text = "0 Seconds"
+horizontal_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("4_fnkfn")
 
 [connection signal="button_down" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Restart" to="." method="_on_restart_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/MarginContainer/Display/CenterContainer/Buttons/Quit" to="." method="_on_quit_button_down"]

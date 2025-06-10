@@ -21,6 +21,9 @@ func _on_quit_button_down() -> void:
 	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
 
 func _ready():
+
+	$CanvasLayer/PanelContainer/MarginContainer/Display/score_text.text = str(StateManager.time) + " Seconds"
+
 	apply_theme_background()
 	
 func apply_theme_background():
@@ -31,3 +34,4 @@ func apply_theme_background():
 		file.close()
 	
 	background_display.texture = background_paths[index]
+

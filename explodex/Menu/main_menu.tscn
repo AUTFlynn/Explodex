@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://57x2dica28kb"]
+[gd_scene load_steps=9 format=3 uid="uid://57x2dica28kb"]
 
 [ext_resource type="Script" uid="uid://c1m7vfr25xiw8" path="res://Menu/main_menu.gd" id="1_ci1se"]
 [ext_resource type="Texture2D" uid="uid://c4f552gmcxrbk" path="res://Background/Background_001.png" id="1_sla5p"]
 [ext_resource type="PackedScene" uid="uid://btfcwjml0h0of" path="res://Options_Menu/options_menu.tscn" id="3_dtkyu"]
+[ext_resource type="PackedScene" uid="uid://ccsyei1dvlaqv" path="res://LeaderboardMenu/LeaderboardButton.tscn" id="3_rw3mj"]
 [ext_resource type="AudioStream" uid="uid://brmvwpyb3lo13" path="res://music/Free Video Game Music - HeatleyBros - Game On.mp3" id="4_ohgnh"]
+[ext_resource type="PackedScene" uid="uid://jrtlocerxa4y" path="res://LeaderboardMenu/LeaderboardMenu.tscn" id="5_cn2sd"]
 
 [sub_resource type="SystemFont" id="SystemFont_ohgnh"]
 font_names = PackedStringArray("Impact")
@@ -86,6 +88,9 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_dtkyu")
 text = "OPTIONS"
 
+[node name="LeaderboardButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_rw3mj")]
+layout_mode = 2
+
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
@@ -96,8 +101,14 @@ text = "EXIT"
 visible = false
 layout_mode = 1
 
+[node name="LeaderboardMenu" parent="." instance=ExtResource("5_cn2sd")]
+visible = false
+layout_mode = 1
+
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ohgnh")
 volume_db = -14.495
 autoplay = true
 bus = &"Music"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]

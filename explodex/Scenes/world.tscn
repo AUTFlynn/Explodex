@@ -31,3 +31,10 @@ stream = ExtResource("3_5a7ea")
 volume_db = -14.495
 autoplay = true
 bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
