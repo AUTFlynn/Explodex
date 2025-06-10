@@ -2,8 +2,10 @@ extends Node
 class_name BombFlagger
 
 var active: bool = false
-var available: bool = true  # Available at game start
-var uses: int = 1  # Number of times it can be used
+#Available at game start
+var available: bool = true  
+#Number of times it can be used
+var uses: int = 1  
 
 var bombflagger_sound = preload("res://sounds/impact-whoosh-drum-314548.mp3")
 
@@ -29,8 +31,7 @@ func play_sound():
 	get_tree().root.add_child(sound_player)
 	sound_player.stream = bombflagger_sound
 	sound_player.play()
-
-	# Ensure sound player is removed after it plays
+	#Ensure sound player is removed after it plays
 	await get_tree().create_timer(5.0).timeout 
 	sound_player.queue_free()
 

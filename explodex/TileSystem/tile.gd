@@ -13,12 +13,7 @@ var adjactent_bombs : int = 0
 @onready var bomb_texture = preload("res://Sprites/DevSprites/bomb_spritesheet2.png")  # Replace with your bomb texture path
 @onready var flag = $flag
 
-
-
 var flagged : bool = false
-
-
-
 
 ##mouse events for the tile
 func _input(event):
@@ -38,7 +33,10 @@ func onClick(left):
 	if left:
 		#check to see if a phantom is used on tile reveal 
 		if StateManager.phantom.click():
-			StateManager.phantom.play_sound()
+			if bomb:
+				StateManager.phantom.play_phantom_die_sound()
+			else:
+				StateManager.phantom.play_phantom_sound()
 			return  
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
@@ -92,8 +90,6 @@ func cascadeRemove(visited := {}, stop = false):
 				if !stop:
 					t.cascadeRemove(visited, true)
 
-
-
 func remove_tile():
 	$Sprite2D2.visible = false
 	dead = true
@@ -102,8 +98,7 @@ func remove_tile():
 		$Sprite2D.texture = bomb_texture
 		if StateManager.detonator.active:
 			StateManager.detonator.play_sound()
-		
-	
+
 	if flagged:
 		flagged = false
 		flag.visible = false
@@ -146,7 +141,6 @@ func toggle_flag():
 	#check to see if the tile is flagged and place one if not
 		if dead:
 			return
-		
 		flagged = !flagged
 		if flagged:
 			flag.visible = true

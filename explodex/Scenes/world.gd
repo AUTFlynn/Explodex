@@ -10,7 +10,6 @@ var t = preload("res://TileSystem/tile.tscn")
 func _unhandled_key_input(event) -> void:
 	if event.is_action("pause"):
 		var new_pause_menu : PauseMenu = pause_menu_packed_scene.instantiate()
-		
 		ui_container.add_child(new_pause_menu)
 
 #settings
@@ -71,21 +70,17 @@ func _ready():
 	update_detonator_display()
 	update_gamble_display()
 
-
 func resetLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world.tscn")
-	
 
 func _on_phantom_pressed() -> void:
 	StateManager.phantom.activate()
 	update_phantom_display()
 
-
 func _on_bomb_flagger_pressed() -> void:
 	StateManager.bombflagger.activate()
 	update_flagger_display()
-
 
 func _on_infrared_pressed() -> void:
 	StateManager.infrared.activate()
