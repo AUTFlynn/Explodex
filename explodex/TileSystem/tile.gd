@@ -15,8 +15,10 @@ var flagged : bool = false
 
 @onready var flag = $flag
 
+
 var grace = false
 var inked = false
+
 ##mouse events for the tile
 func _input(event):
 	update_adjacent_display()
@@ -35,11 +37,9 @@ func onClick(left):
 	if left:   
 		##if this is the first tile being clicked remove a set around it
 		if StateManager.first_tile == false:
+			StateManager.time = 0
 			StateManager.world.spawn_bombs(pos)
 			StateManager.first_tile = true
-			cascadeRemove()
-		
-		##logic to remove tile (queue_free())
 		if bomb:
 			SoundManager.play(0)
 		cascadeRemove()

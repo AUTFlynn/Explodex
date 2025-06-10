@@ -31,5 +31,5 @@ func on_difficulty_selected(index):
 	var difficulty = DIFFICULTY_MODE_ARRAY[index]
 	StateManager.board_size = DIFFICULTY_GRID_SIZES[difficulty]
 	StateManager.max_bombs = DIFFICULTY_BOMB_COUNTS[difficulty]
-	
+	StateManager.mode = difficulty
 	
