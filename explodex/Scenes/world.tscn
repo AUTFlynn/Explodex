@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ctq5bwxyhv6uk"]
+[gd_scene load_steps=51 format=3 uid="uid://ctq5bwxyhv6uk"]
 
 [ext_resource type="Script" uid="uid://x0lj2pngskl8" path="res://Scenes/world.gd" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://cvltd3limee7u" path="res://Pause/pause_menu.tscn" id="2_go701"]
@@ -45,6 +45,11 @@
 [ext_resource type="Texture2D" uid="uid://cw8p7eis5dtwe" path="res://Sprites/DevSprites/Gamble2.png" id="26_al5m0"]
 [ext_resource type="Texture2D" uid="uid://b12tcai2h1mts" path="res://Sprites/DevSprites/Gamble3.png" id="27_6mm6r"]
 [ext_resource type="Texture2D" uid="uid://dj7ksfxnq78s7" path="res://Sprites/DevSprites/Gamble4.png" id="28_xcb5n"]
+[ext_resource type="Texture2D" uid="uid://dliaxc02qrubl" path="res://Sprites/DevSprites/PhantomIcon.png" id="29_0sgyr"]
+[ext_resource type="Texture2D" uid="uid://bpdhbyoo1bdev" path="res://Sprites/DevSprites/FlaggerIcon.png" id="30_l33cg"]
+[ext_resource type="Texture2D" uid="uid://d265vqlvg0rs7" path="res://Sprites/DevSprites/InfraredIcon.png" id="31_13n8b"]
+[ext_resource type="Texture2D" uid="uid://dn6ba8nrt2gt2" path="res://Sprites/DevSprites/DetonatorIcon.png" id="32_uqdn7"]
+[ext_resource type="Texture2D" uid="uid://dn7egmqpkiftx" path="res://Sprites/DevSprites/GambleIcon.png" id="33_gwaj6"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_a02cp")
@@ -297,6 +302,45 @@ offset_right = 844.0
 offset_bottom = 651.0
 texture = ExtResource("28_xcb5n")
 
+[node name="TextureRect" type="TextureRect" parent="PowerUps"]
+offset_left = 370.0
+offset_top = 554.0
+offset_right = 427.0
+offset_bottom = 611.0
+texture = ExtResource("29_0sgyr")
+
+[node name="TextureRect2" type="TextureRect" parent="PowerUps"]
+offset_left = 492.0
+offset_top = 567.0
+offset_right = 530.0
+offset_bottom = 605.0
+texture = ExtResource("30_l33cg")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="PowerUps"]
+offset_left = 599.0
+offset_top = 568.0
+offset_right = 638.0
+offset_bottom = 607.0
+texture = ExtResource("31_13n8b")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="PowerUps"]
+offset_left = 710.0
+offset_top = 571.0
+offset_right = 742.0
+offset_bottom = 603.0
+texture = ExtResource("32_uqdn7")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="PowerUps"]
+offset_left = 818.0
+offset_top = 568.0
+offset_right = 854.0
+offset_bottom = 604.0
+texture = ExtResource("33_gwaj6")
+expand_mode = 1
+
 [node name="UI_Container" type="CanvasLayer" parent="."]
 
 [node name="Phantom" type="TextureButton" parent="UI_Container"]
@@ -403,10 +447,11 @@ theme_override_constants/line_separation = 0
 text = "Shop"
 
 [node name="PhantomLabel" type="RichTextLabel" parent="UI_Container"]
-offset_left = 322.0
-offset_top = 595.0
-offset_right = 398.0
-offset_bottom = 624.0
+offset_left = 327.0
+offset_top = 600.0
+offset_right = 406.0
+offset_bottom = 625.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/table_v_separation = 0
@@ -421,10 +466,11 @@ theme_override_constants/line_separation = 0
 text = "Phantom"
 
 [node name="FlaggerLabel" type="RichTextLabel" parent="UI_Container"]
-offset_left = 439.0
-offset_top = 595.0
-offset_right = 502.0
-offset_bottom = 624.0
+offset_left = 442.0
+offset_top = 599.0
+offset_right = 505.0
+offset_bottom = 628.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/table_v_separation = 0
@@ -439,10 +485,11 @@ theme_override_constants/line_separation = 0
 text = "Flagger"
 
 [node name="InfraredLabel" type="RichTextLabel" parent="UI_Container"]
-offset_left = 546.0
-offset_top = 595.0
-offset_right = 618.0
-offset_bottom = 624.0
+offset_left = 551.0
+offset_top = 599.0
+offset_right = 623.0
+offset_bottom = 628.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/table_v_separation = 0
@@ -457,10 +504,11 @@ theme_override_constants/line_separation = 0
 text = "Infrared"
 
 [node name="DetonatorLabel" type="RichTextLabel" parent="UI_Container"]
-offset_left = 645.0
-offset_top = 595.0
-offset_right = 728.0
-offset_bottom = 624.0
+offset_left = 651.0
+offset_top = 599.0
+offset_right = 734.0
+offset_bottom = 628.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/table_v_separation = 0
@@ -475,10 +523,11 @@ theme_override_constants/line_separation = 0
 text = "Detonator"
 
 [node name="GambleLabel" type="RichTextLabel" parent="UI_Container"]
-offset_left = 762.0
-offset_top = 595.0
-offset_right = 825.0
-offset_bottom = 624.0
+offset_left = 765.0
+offset_top = 599.0
+offset_right = 828.0
+offset_bottom = 628.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/table_v_separation = 0
