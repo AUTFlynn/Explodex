@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1m7vfr25xiw8" path="res://Menu/main_menu.gd" id="1_ci1se"]
 [ext_resource type="Texture2D" uid="uid://c4f552gmcxrbk" path="res://Background/Background_001.png" id="1_sla5p"]
+[ext_resource type="SystemFont" uid="uid://u60k1yxpj6yc" path="res://Menu/font.tres" id="3_cn2sd"]
 [ext_resource type="PackedScene" uid="uid://btfcwjml0h0of" path="res://Options_Menu/options_menu.tscn" id="3_dtkyu"]
 [ext_resource type="PackedScene" uid="uid://ccsyei1dvlaqv" path="res://LeaderboardMenu/LeaderboardButton.tscn" id="3_rw3mj"]
 [ext_resource type="AudioStream" uid="uid://brmvwpyb3lo13" path="res://music/Free Video Game Music - HeatleyBros - Game On.mp3" id="4_ohgnh"]
@@ -9,10 +10,6 @@
 
 [sub_resource type="SystemFont" id="SystemFont_ohgnh"]
 font_names = PackedStringArray("Impact")
-
-[sub_resource type="SystemFont" id="SystemFont_dtkyu"]
-font_names = PackedStringArray("Impact", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
-subpixel_positioning = 0
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -79,22 +76,23 @@ layout_mode = 2
 [node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_dtkyu")
+theme_override_fonts/font = ExtResource("3_cn2sd")
 text = "START"
 
 [node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_dtkyu")
+theme_override_fonts/font = ExtResource("3_cn2sd")
 text = "OPTIONS"
 
 [node name="LeaderboardButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_rw3mj")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cn2sd")
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_dtkyu")
+theme_override_fonts/font = ExtResource("3_cn2sd")
 text = "EXIT"
 
 [node name="Options_Menu" parent="." instance=ExtResource("3_dtkyu")]

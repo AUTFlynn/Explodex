@@ -1,0 +1,5 @@
+[gd_resource type="SystemFont" format=3 uid="uid://u60k1yxpj6yc"]
+
+[resource]
+font_names = PackedStringArray("Impact", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+subpixel_positioning = 0
