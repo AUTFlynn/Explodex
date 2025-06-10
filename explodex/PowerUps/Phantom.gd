@@ -8,7 +8,7 @@ var active: bool = false
 #Available on game start
 var available: bool = true  
 #Starting amount, reset on restart
-var count: int = 1  
+var count: int = 4 
 
 func activate():
 	if available and count > 0:
@@ -27,7 +27,7 @@ func click():
 func reset():
 	active = false  
 	available = true
-	count = 1
+	count = 4
 
 func play_sound():
 	var sound_player = AudioStreamPlayer.new()
@@ -38,3 +38,4 @@ func play_sound():
 	# Ensure sound player is removed after it plays
 	await get_tree().create_timer(5.0).timeout 
 	sound_player.queue_free()
+	

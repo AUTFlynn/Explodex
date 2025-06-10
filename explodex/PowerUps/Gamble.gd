@@ -36,7 +36,7 @@ func choose_random_powerup():
 			StateManager.infrared.charge += 1
 			StateManager.infrared.activate()
 		"bombflagger":
-			StateManager.bomb_flagger.uses += 1
+			StateManager.bombflagger.uses += 1
 			StateManager.bombflagger.activate()
 
 	print("Gamble activated:", chosen_powerup)
