@@ -25,4 +25,4 @@ bus = &"Music"
 
 [node name="BaitSpawner" parent="." instance=ExtResource("5_fo5ed")]
 bait_scenes = Array[PackedScene]([ExtResource("5_5ukr8"), ExtResource("6_o06y3"), ExtResource("7_o06y3")])
-bait_weights = Array[float]([10.0, 10.0, 5.0])
+bait_weights = Array[float]([10.0, 10.0, 2.5])

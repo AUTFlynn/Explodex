@@ -8,7 +8,7 @@ var max_bombs : int = 20
 var board_size: Vector2i = Vector2i(12, 10)
 
 var score : float
-var bait_enabled = false
+var bait_enabled = true
 
 func resetLevel():
 	get_tree().paused = false
