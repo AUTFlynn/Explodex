@@ -208,4 +208,3 @@ func update_gamble_display():
 func _on_timer_timeout():
 	StateManager.time += 0.1
 	$Timer.start(0.1)
-

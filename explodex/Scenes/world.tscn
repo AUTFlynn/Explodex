@@ -299,8 +299,6 @@ texture = ExtResource("28_xcb5n")
 
 [node name="UI_Container" type="CanvasLayer" parent="."]
 
-
-[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 [node name="Phantom" type="TextureButton" parent="UI_Container"]
 offset_left = 306.0
 offset_top = 618.0
@@ -494,8 +492,9 @@ theme_override_constants/shadow_outline_size = 7
 theme_override_constants/line_separation = 0
 text = "Gamble"
 
-[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5a7ea")
 volume_db = -14.495
 autoplay = true

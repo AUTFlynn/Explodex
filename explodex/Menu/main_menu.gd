@@ -8,17 +8,16 @@ extends Control
 
 @onready var background_display = $BackgroundDisplay
 @onready var theme_music: AudioStreamPlayer = $MusicStreamPlayer
-@onready var options_menu: OptionsMenu = $Options_Menu as OptionsMenu
 @onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
 
 @onready var options_menu = $Options_Menu
-@onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
+
 
 
 
 @onready var leaderboard_button = $MarginContainer/HBoxContainer/VBoxContainer/LeaderboardButton
 @onready var leaderboard_menu = $LeaderboardMenu
-@onready var background_display = $BackgroundDisplay
+
 @onready var start_level = preload("res://Scenes/world.tscn") as PackedScene
 
 var music_tracks = [
